@@ -1,0 +1,24 @@
+.logoContainer{
+ width: 300px;
+transform: translate(-50px,0);
+ position: absolute;
+ top: 30%;
+ left: 0px;
+}
+
+/* .logoAnimation{
+    animation: rotateLogo 10s linear infinite ;
+  
+    transform-origin: center;
+}
+
+@keyframes rotateLogo {
+    0%{
+        transform: rotateX(0deg);
+        background-color: aqua;
+    }
+    100%{
+        transform: rotateX(360deg);
+    }
+    
+} */

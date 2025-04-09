@@ -1,0 +1,61 @@
+.mainMenu{
+    height: 100vh;
+    width: 100%;
+    background-image: url('../images/resize/ayasit1.jpg');
+    background-size: cover;
+    object-fit: cover;
+   background-position: center;
+   transition: all .5s;
+   position: fixed;
+   top: 0;
+   left: 0;
+   z-index: -1;
+}
+
+@keyframes eatAnimation {
+    0%{
+        background-image: url('../images/resize/ayasit1.jpg');
+   
+    }
+60%{
+    background-image: url('../images/resize/ayasit1.jpg');
+   
+}
+    80%{
+        background-image: url('../images/resize/ayasit2.jpg');
+        filter: blur(0);
+    }
+    100%{
+        filter: blur(4px);
+        background-image:linear-gradient(rgba(0, 0, 0, 0.809),rgba(0, 0, 0, 0.838)), url('../images/resize/ayasit2.jpg');
+
+    }
+    
+}
+
+@keyframes exitMainMenuAnimation {
+    0%{
+        filter: blur(4px);
+        background-image:linear-gradient(rgba(0, 0, 0, 0.38),rgba(0, 0, 0, 0.309)), url('../images/resize/ayasit2.jpg');
+
+    }
+
+    10%{
+        filter: blur(0);
+        background-image:linear-gradient(rgba(0, 0, 0, 0),rgba(0, 0, 0, 0)), url('../images/resize/ayasit1.jpg');
+ 
+    }
+
+
+    80%{
+     
+        background-image: url('../images/resize/ayasit1.jpg');
+
+    }
+   
+    100%{
+        filter: blur(0);
+        background-image: url('../images/resize/ayasit1.jpg');
+
+    }
+  }

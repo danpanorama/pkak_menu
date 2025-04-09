@@ -1,0 +1,32 @@
+.homePage{
+    height: 100vh;
+    width: 100%;
+    background-image: url('../images/resize/pizzalogofar.jpg');
+    background-size: cover;
+    object-fit: cover;
+    position: relative;
+}
+.holdingPrimaryButton{
+    height: 80%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+   
+}
+
+
+@keyframes exitAnimation {
+    0% {
+        background-image: url('../images/resize/pizzalogofar.jpg');
+
+    }
+  
+    100% {
+        background-image: url('../images/resize/pizzalogofar.jpg');
+        background-position: 50% 100%;
+      
+    }
+  }
+
