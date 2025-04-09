@@ -11,7 +11,7 @@ function MainMenuPage() {
       <div className="flex-col-center">
         <motion.div
           className="containerMainMenu mainMenu"
-          transition={{ duration: 0.75, ease: "easeInOut", delay: 0.5 }}
+          transition={{ duration: 0.75, ease: "easeInOut", delay: 0 }}
           initial={{ opacity: 1 }}
           animate={{
             opacity: 1,
@@ -31,7 +31,7 @@ function MainMenuPage() {
           animate={{ opacity: 1 }}
           exit={{
             transition: { delay: 0 },
-            opacity: 0,
+            opacity: 1,
           }}
         >
     {Object.entries(menu.food[0]).map(([categoryName, categoryData]) => (

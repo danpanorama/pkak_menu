@@ -2,7 +2,7 @@
 import Image1 from '../images/resize/ayagivesalad.jpg'
 import Image2 from '../images/resize/sweets.jpg'
 import Image3 from '../images/resize/ayadan.jpg'
-import Image4 from '../images/resize/ayaeatpizza2.jpg'
+import Image4 from '../images/resize/ayaeatpizza22.jpg'
 
 export const menu = {
     food: [
