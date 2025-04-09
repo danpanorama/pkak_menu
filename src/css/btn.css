@@ -73,3 +73,16 @@
  font-family: Arial, Helvetica, sans-serif ;
 
   }
+
+  .SecondaryButton{
+    padding: 10px 30px;
+    background-color: white;
+    color: black;
+  border-radius: 10px;
+    border: none;
+    
+  }
+  .SecondaryButtonText{
+    font-size: 2rem;
+    text-transform: uppercase;
+  }

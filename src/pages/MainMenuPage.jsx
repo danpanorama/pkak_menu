@@ -4,6 +4,7 @@ import "../css/main.css";
 import { motion } from "framer-motion";
 import { menu } from "../database/menu";
 import MenuCategory from "../components/menu/MenuCategory";
+import { div } from "framer-motion/client";
 
 function MainMenuPage() {
   return (
@@ -11,37 +12,42 @@ function MainMenuPage() {
       <div className="flex-col-center">
         <motion.div
           className="containerMainMenu mainMenu"
-          transition={{ duration: 0.75, ease: "easeInOut", delay: .5 }}
+          transition={{ duration: 1, ease: "easeInOut", delay: 0 }}
           initial={{ opacity: 1 }}
           animate={{
             opacity: 1,
-            animation: "eatAnimation 1s",
-            animationFillMode: "forwards",
+            animation: "eatAnimation 3s ease-in-out forwards",
           }}
           exit={{
-            transition: { duration: 0.5 ,delay:0}, // משך זמן האנימציה ביציאה
+            transition: { duration: 0.5, delay: 0 }, // משך זמן האנימציה ביציאה
             animation: "exitMainMenuAnimation 1s", // אנימציה ספציפית ביציאה
             animationFillMode: "forwards",
           }}
         ></motion.div>
         <motion.div
           className="menuGrid"
-          transition={{ duration: 0.75, ease: "easeInOut", delay: 1.2 }}
+          transition={{ duration: 0.75, ease: "easeInOut", delay: 2 }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{
             transition: { delay: 0 },
-            opacity: 1,
+            opacity: 0,
           }}
         >
-    {Object.entries(menu.food[0]).map(([categoryName, categoryData]) => (
-  <MenuCategory
-    key={categoryName}
-    category={categoryName}
-    items={categoryData.items}
-    image={categoryData.image}
-  />
-))}
+          {menu.map((e,i) => (
+         
+            <MenuCategory
+              key={i}
+              category={e}
+              items={e.items}
+              image={e.image}
+            />
+
+
+          ))}
+ 
+
+
         </motion.div>
       </div>
     </TransitionAnimation>

@@ -1,7 +1,7 @@
 .mainMenu{
     height: 100vh;
     width: 100%;
-    background-image: url('../images/resize/ayasit1.jpg');
+    background-image:linear-gradient(rgba(0, 0, 0, 0),rgba(0, 0, 0, 0)), url('../images/resize/ayasit1.jpg');
     background-size: cover;
     object-fit: cover;
    background-position: center;
@@ -13,26 +13,27 @@
 }
 
 @keyframes eatAnimation {
-    0%{
-        background-image: url('../images/resize/ayasit1.jpg');
-   
+    0% {
+      background-image: url('../images/resize/ayasit1.jpg');
+      filter: blur(0);
     }
-60%{
-    background-image: url('../images/resize/ayasit1.jpg');
-   
-}
-    80%{
-        background-image: url('../images/resize/ayasit2.jpg');
-        filter: blur(0);
+    40% {
+      background-image: url('../images/resize/ayasit1.jpg');
+      filter: blur(0);
     }
-    100%{
-        filter: blur(4px);
-        background-image:linear-gradient(rgba(0, 0, 0, 0.353),rgba(0, 0, 0, 0.339)), url('../images/resize/ayasit2.jpg');
-
+    50% {
+      background-image: url('../images/resize/ayasit2.jpg');
+      filter: blur(0);
     }
-    
-}
-
+    70% {
+      background-image: url('../images/resize/ayasit2.jpg');
+      filter: blur(4px);
+    }
+    100% {
+      background-image: linear-gradient(rgba(0, 0, 0, 0.67), rgba(0, 0, 0, 0.622)), url('../images/resize/ayasit2.jpg');
+      filter: blur(4px);
+    }
+  }
 @keyframes exitMainMenuAnimation {
     0%{
         filter: blur(4px);
@@ -40,17 +41,10 @@
 
     }
 
-    10%{
+    50%{
         filter: blur(0);
         background-image:linear-gradient(rgba(0, 0, 0, 0),rgba(0, 0, 0, 0)), url('../images/resize/ayasit1.jpg');
  
-    }
-
-
-    80%{
-     
-        background-image: url('../images/resize/ayasit1.jpg');
-
     }
    
     100%{
