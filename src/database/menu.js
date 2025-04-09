@@ -1,10 +1,9 @@
 
-import Image1 from '../images/A7105055.jpg'
+import Image1 from '../images/resize/ayagivesalad.jpg'
+import Image2 from '../images/resize/sweets.jpg'
+import Image3 from '../images/resize/ayadan.jpg'
+import Image4 from '../images/resize/ayaeatpizza2.jpg'
 
-import Image2 from '../images/A7105045.jpg'
-
-import Image3 from '../images/A7104824.jpg'
-import Image4 from '../images/A7200280.jpg'
 export const menu = {
     food: [
       {
