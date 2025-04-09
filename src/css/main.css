@@ -27,7 +27,7 @@
     }
     100%{
         filter: blur(4px);
-        background-image:linear-gradient(rgba(0, 0, 0, 0.809),rgba(0, 0, 0, 0.838)), url('../images/resize/ayasit2.jpg');
+        background-image:linear-gradient(rgba(0, 0, 0, 0.353),rgba(0, 0, 0, 0.339)), url('../images/resize/ayasit2.jpg');
 
     }
     

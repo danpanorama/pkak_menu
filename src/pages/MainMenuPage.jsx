@@ -11,7 +11,7 @@ function MainMenuPage() {
       <div className="flex-col-center">
         <motion.div
           className="containerMainMenu mainMenu"
-          transition={{ duration: 0.75, ease: "easeInOut", delay: 0 }}
+          transition={{ duration: 0.75, ease: "easeInOut", delay: .5 }}
           initial={{ opacity: 1 }}
           animate={{
             opacity: 1,
@@ -19,7 +19,7 @@ function MainMenuPage() {
             animationFillMode: "forwards",
           }}
           exit={{
-            transition: { duration: 0.5 }, // משך זמן האנימציה ביציאה
+            transition: { duration: 0.5 ,delay:0}, // משך זמן האנימציה ביציאה
             animation: "exitMainMenuAnimation 1s", // אנימציה ספציפית ביציאה
             animationFillMode: "forwards",
           }}
