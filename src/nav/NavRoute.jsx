@@ -6,6 +6,7 @@ import OpeningPage from '../pages/OpeningPage';
 import NotFound from '../pages/NotFound';
 import {AnimatePresence} from 'framer-motion';
 import MainMenuPage from '../pages/MainMenuPage';
+import ItemsPage from '../pages/ItemsPage';
 function NavRoute() {
   const location =useLocation()
   return (
@@ -20,6 +21,8 @@ function NavRoute() {
 <Route path="*" element={<NotFound />}  />
 <Route path="/" element={<OpeningPage />}  />
 <Route path="/mainMenu" element={<MainMenuPage />}  />
+<Route path="/item/:category" element={<ItemsPage />} />
+
 
 </Routes>
 </AnimatePresence>

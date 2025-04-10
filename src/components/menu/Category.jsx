@@ -1,10 +1,21 @@
 import "../../css/menu.css";
-import SecondaryButton from "../buttons/SecondaryButton";
+import { useNavigate } from "react-router-dom";
+
 
 function Category(props) {
-  console.log(props.category.image);
+  const navigate = useNavigate();
+
+
+  function movePage() {
+
+  navigate(`/item/${props.category.category}`, { state: props.category });
+
+  }
+
+
   return (
     <div
+    onClick={movePage}
       style={{
         backgroundImage: `linear-gradient(45deg ,transparent 0% 10%,rgb(0, 0, 0)60% 100% ),url(${props.category.image})`,
       }}
