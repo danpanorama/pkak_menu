@@ -394,18 +394,18 @@
 //       comment: "",
 //     },
 //   ];
-import Image1 from '../images/resize/ayaeatpizza22.jpg'
-import Image2 from '../images/resize/ayagivesalad.jpg'
+import Image1 from '../images/resize/ayabottle1.jpg'
+import Image2 from '../images/resize/ayawine1.jpg'
 import Image3 from '../images/resize/sweets.jpg'
- import Image4 from '../images/resize/ayaeatpizza22.jpg'
- import Image5 from '../images/resize/ayagivesalad.jpg'
- import Image6 from '../images/resize/sweets.jpg'
+ import Image4 from '../images/resize/kaprezasalad1.jpg'
+ import Image5 from '../images/resize/fongipizza1.jpg'
+ import Image6 from '../images/resize/danarak3.jpg'
  import Image7 from '../images/resize/ayadan.jpg'
- import Image8 from '../images/resize/ayaeatpizza22.jpg'
+ import Image8 from '../images/resize/ayabeer.jpg'
 export const menu = [
   {
     category: 'פיצה',
-    image: Image4,
+    image: Image5,
     items: [
       {
         name: "מרגריטה",
@@ -442,8 +442,8 @@ export const menu = [
     ],
   },
   {
-    category: 'סלטים',
-    image: Image2,
+    category: 'לא פיצה',
+    image: Image4,
     items: [
       {
         name: "סלט עלים ופלפלים",
@@ -470,21 +470,21 @@ export const menu = [
       },
     ],
   },
+  // {
+  //   category: 'תוספות',
+  //   image: Image1,
+  //   items: [
+  //     {
+  //       name: "נאצוס וסלסה",
+  //       price: 34,
+  //       description: "",
+  //     },
+  //   ],
+  // },
   {
-    category: 'תוספות',
-    image: Image1,
-    items: [
-      {
-        name: "נאצוס וסלסה",
-        price: 34,
-        description: "",
-      },
-    ],
-  },
-  {
-    category: 'שתייה',
+    category: 'בריה',
     title: 'מהחבית',
-    image: Image1,
+    image: Image8,
     items: [
       {
         name: 'סטלה ארטואה',
@@ -519,9 +519,9 @@ export const menu = [
     ],
   },
   {
-    category: 'שתייה קלה',
+    category: ' בירה בקבוק',
     title: 'בבקבוק',
-    image: Image2,
+    image: Image1,
     items: [
       {
         name: 'היינקן',
@@ -575,7 +575,7 @@ export const menu = [
   {
     category: 'יין',
     title: 'יין אדום ולבן',
-    image: Image7,
+    image: Image2,
     items: [
       {
         name: 'קברנה סובניון',

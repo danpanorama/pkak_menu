@@ -4,7 +4,7 @@ import "../css/main.css";
 import { motion } from "framer-motion";
 import { menu } from "../database/menu";
 import MenuCategory from "../components/menu/MenuCategory";
-import { div } from "framer-motion/client";
+import Category from "../components/menu/Category";
 
 function MainMenuPage() {
   return (
@@ -16,7 +16,7 @@ function MainMenuPage() {
           initial={{ opacity: 1 }}
           animate={{
             opacity: 1,
-            animation: "eatAnimation 3s ease-in-out forwards",
+            animation: "eatAnimation 2s ease-in-out forwards",
           }}
           exit={{
             transition: { duration: 0.5, delay: 0 }, // משך זמן האנימציה ביציאה
@@ -34,20 +34,9 @@ function MainMenuPage() {
             opacity: 0,
           }}
         >
-          {menu.map((e,i) => (
-         
-            <MenuCategory
-              key={i}
-              category={e}
-              items={e.items}
-              image={e.image}
-            />
-
-
+          {menu.map((e, i) => (
+            <Category key={i} category={e} items={e.items} image={e.image} />
           ))}
- 
-
-
         </motion.div>
       </div>
     </TransitionAnimation>
