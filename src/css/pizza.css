@@ -1,0 +1,42 @@
+.pizzaBackground{
+        background-image:linear-gradient(rgba(0, 0, 0, 0.816),rgba(0, 0, 0, 0.82)) ,url('../images/resize/ayadan.jpg');
+        min-height: 100vh;
+        background-size: cover;
+    object-fit: cover;
+
+}
+.pizzaWrapperGrid{
+padding: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px ;
+   
+    
+}
+.infoPizzaHolder{
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    height: 100%;
+   
+    justify-content: space-between;
+}
+.round{
+    border-radius: 10px;
+}
+.pizzaSquare{
+    background-color: black;
+   border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    text-align: right;
+    border: 1px solid white;
+    
+}
+.pizzaItemHeader{
+    font-size: 1.5rem;
+    margin-top: 10px;
+}

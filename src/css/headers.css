@@ -4,8 +4,11 @@
     direction: rtl;
 }
 .secondaryHeader{
-    font-size: 2rem;
+    font-size: 3rem;
     font-weight: 100;
+}
+.priceHeader{
+    font-size: 2rem;
 }
 
 .beerHeader{

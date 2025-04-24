@@ -10,7 +10,7 @@ import Image3 from '../images/resize/sweets.jpg'
 
 
  import flag1 from '../images/flag/be.svg'
- import flag2 from '../images/flag/it.svg'
+ import us from '../images/flag/us.svg'
  import flag3 from '../images/flag/il.svg'
  import flag4 from '../images/flag/gf.svg'
  import flag5 from '../images/flag/gf.svg'
@@ -30,6 +30,7 @@ export const menu = [
         price: 60,
         vegan: false,
         extras: [],
+        image:Image5
       },
       {
         name: "מרגריטה טבעונית",
@@ -38,6 +39,7 @@ export const menu = [
         price: 62,
         vegan: true,
         extras: [],
+        image:Image5
       },
       {
         name: "פונגי",
@@ -46,6 +48,7 @@ export const menu = [
         price: 66,
         vegan: false,
         extras: [],
+        image:Image5
       },
       {
         name: "ביאנקה",
@@ -54,6 +57,7 @@ export const menu = [
         price: "",
         vegan: false,
         extras: [],
+        image:Image5
       },
     ],
   },
@@ -99,6 +103,7 @@ export const menu = [
   // },
   {
     category: 'בריה',
+    details:'330/500',
     title: 'מהחבית',
     image: Image8,
     items: [
@@ -123,7 +128,7 @@ export const menu = [
         pairing: 'בורגרים, חטיפים',
         volume: '500ml',
         description: 'לאגר אמריקאית פופולרית, מתאימה לכל אירוע',
-        img:flag2,
+        img:us,
         logo:stellaBattle
       },
       {
