@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "../../../css/menu.css";
 import BeerDropdown from "../../dropdown/BeerDropdown";
+import PkakOnly from "../../logo/PkakOnly";
 
 
 
@@ -26,6 +27,7 @@ function RowInformation(props) {
     <div className="menuRowItem">
       <h2 className="secondaryHeader ">{props.data.name}</h2>
       <h2 className="priceHeader bgb">
+       
         {" "}
         {props.data.price}/{props.data.price + 6}
       </h2>

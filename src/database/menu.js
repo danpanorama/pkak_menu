@@ -108,7 +108,7 @@ export const menu = [
     image: Image8,
     items: [
       {
-        name: 'סטלה ארטואה',
+        name: 'סטלה ',
         price: 18,
         alcoholPercent: '5.0%',
         origin: 'בלגיה',
