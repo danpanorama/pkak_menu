@@ -4,7 +4,7 @@ import "../../../css/menu.css";
 
 function BeerCategory(props) {
   
-  return (
+  return ( 
  <div className="beerCategory">
 
     {props.items? props.items.map((e)=>{

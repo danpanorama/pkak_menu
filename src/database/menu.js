@@ -402,6 +402,14 @@ import Image3 from '../images/resize/sweets.jpg'
  import Image6 from '../images/resize/danarak3.jpg'
  import Image7 from '../images/resize/ayadan.jpg'
  import Image8 from '../images/resize/ayabeer.jpg'
+
+
+ import flag1 from '../images/flag/gb-nir.svg'
+ import flag2 from '../images/flag/it.svg'
+ import flag3 from '../images/flag/il.svg'
+ import flag4 from '../images/flag/gf.svg'
+ import flag5 from '../images/flag/gf.svg'
+
 export const menu = [
   {
     category: 'פיצה',
@@ -495,6 +503,7 @@ export const menu = [
         pairing: 'פיצות, סלטים',
         volume: '500ml',
         description: 'לאגר בלגית קלאסית עם איזון מושלם בין רעננות למרירות',
+        img:flag1
       },
       {
         name: 'באדוויזר',
@@ -505,6 +514,7 @@ export const menu = [
         pairing: 'בורגרים, חטיפים',
         volume: '500ml',
         description: 'לאגר אמריקאית פופולרית, מתאימה לכל אירוע',
+        img:flag2
       },
       {
         name: 'מכבי',
@@ -515,6 +525,7 @@ export const menu = [
         pairing: 'מאפים, זיתים',
         volume: '500ml',
         description: 'הבחירה המקומית המובילה. קלאסית ישראלית!',
+        img:flag3
       },
     ],
   },
