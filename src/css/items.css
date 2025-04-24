@@ -1,18 +1,27 @@
 .itemRowTab{
-    height: 100px;
+    height: 130px;
    display: flex;
    flex-direction: column;
    padding-right: 40px;
+   padding-left: 10px;
    justify-content: center;
     border-bottom: 1px solid black;
     /* background-image: url('../images/flag/gb-sct.svg'); */
     background-size: cover;
     background-position: center ;
-  background-color:   rgba(3, 28, 50, 0.766);
+
 }
 .itemsFirstChild{
     direction: rtl;
  
+}
+
+.menuRowItem{
+    display: flex;
+    flex-direction: row;
+align-items: center;
+    justify-content: space-between;
+
 }
 .line{
     width: 100%;

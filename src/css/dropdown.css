@@ -1,0 +1,63 @@
+.closeDropdownBeer{
+    height: 0;
+    visibility: hidden;
+    display: none;
+    background-color: white;
+}
+
+.dropDownContainer{
+    height: auto;
+    padding: 10px 10px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  
+}
+.dropdownHolder{
+    width: 95%;
+    height: 90%;
+    border: 1px solid black;
+padding: 10px;
+}
+.infoSide{
+   
+}
+.imgSmall{
+    height: 20px;
+}
+.head{
+    margin-left: 5px;
+    font-weight: 700;
+}
+.infoBeerRow{
+    display: flex;
+    flex-direction: row;
+   
+  margin-bottom: 10px;
+   
+}
+.text{
+    font-size: 1.5rem;
+}
+.dropdownHeader{
+    font-size: 2rem;
+}
+
+.imageSide{
+    height: auto;
+    width: 100px;
+}
+.img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    background-size: cover;
+}
+.dropdownHolder{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
