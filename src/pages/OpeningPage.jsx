@@ -14,9 +14,9 @@ initial={{ opacity: 1 }}
 animate={{ opacity: 1 }}
 exit={{
 
-  transition: { duration: 1 },  // משך זמן האנימציה ביציאה
-  animation: 'exitAnimation 1s', // אנימציה ספציפית ביציאה
-  animationFillMode: 'forwards'
+  // transition: { duration: 1 },  // משך זמן האנימציה ביציאה
+  // animation: 'exitAnimation 1s', // אנימציה ספציפית ביציאה
+  // animationFillMode: 'forwards'
 }}
     
     className="container homePage">
