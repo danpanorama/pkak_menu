@@ -2,7 +2,7 @@ import "../../css/dropdown.css";
 
 function BeerDropdown(props) {
   return (
-    <div className={props.isActive ? "dropDownContainer" : "closeDropdownBeer"}>
+    <div className={props.isActive && props.data.id == props.itemId ? "dropDownContainer" : "closeDropdownBeer"}>
       <div className="dropdownHolder">
         <div className="infoSide">
           <h1 className="dropdownHeader" >{props.data.name}</h1>

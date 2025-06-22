@@ -5,6 +5,8 @@ import Image3 from '../images/resize/sweets.jpg'
  import Image4 from '../images/resize/kaprezasalad1.jpg'
  import Image5 from '../images/resize/fongipizza1.jpg'
  import Image6 from '../images/resize/danarak3.jpg'
+  import Image33 from '../images/resize/ayagivesalad.jpg'
+
  import Image7 from '../images/resize/ayadan.jpg'
  import Image8 from '../images/resize/ayabeer.jpg'
 
@@ -14,14 +16,27 @@ import Image3 from '../images/resize/sweets.jpg'
  import flag3 from '../images/flag/il.svg'
  import flag4 from '../images/flag/gf.svg'
  import flag5 from '../images/flag/gf.svg'
-
-
+ import Pizza from '../icons/pizza-svgrepo-com.svg'
+ import Salad from '../icons/salad-svgrepo-com (1).svg'
+  import beer2 from '../icons/beer-svgrepo-com (2).svg'
+ import beer4 from '../icons/beer-svgrepo-com (3).svg'
+ import Dessert1 from '../icons/cupcake-dessert-food-svgrepo-com.svg'
+ import winebuttiol from '../icons/wine-svgrepo-com.svg'
  import stellaBattle from '../images/buttols/stellabuttol.png'
+  import wineGlass from '../icons/wine-france-pouring-national-culture-paris-svgrepo-com (1).svg'
+
+  import whisky1 from '../icons/whiskey-whisky-svgrepo-com.svg'
+  import whisky2 from '../icons/whiskey-svgrepo-com.svg'
+  import whisky3 from '../icons/whiskey-svgrepo-com (2).svg'
+  import whisky4 from '../icons/whiskey-svgrepo-com (1).svg'
+
 
 export const menu = [
   {
     category: 'פיצה',
     image: Image5,
+    id:1,
+    icon:Pizza,
     items: [
       {
         name: "מרגריטה",
@@ -33,7 +48,7 @@ export const menu = [
         image:Image5
       },
       {
-        name: "מרגריטה טבעונית",
+        name: "🌾 מרגריטה טבעונית" ,
         description: "פיצה מרגריטה טבעונית עם רוטב עגבניות",
         materials: "מוצרלה טבעונית מגורדת, רוטב עגבניות, בזיליקום, פרמזן טבעוני",
         price: 62,
@@ -64,24 +79,34 @@ export const menu = [
   {
     category: 'לא פיצה',
     image: Image4,
+    icon:Salad,
+      id:2,
     items: [
       {
         name: "סלט עלים ופלפלים",
         price: 49,
         description: "",
         vegan: true,
+        materials: "",
+        extras: [],
+        image:Image5
       },
       {
         name: "סלט עלים ופטריות",
         price: 47,
         description: "",
         vegan: true,
+        materials: "",
+        extras: [],
+        image:Image33
       },
     ],
   },
   {
     category: 'קינוחים',
     image: Image3,
+      id:3,
+      icon:Dessert1,
     items: [
       {
         name: "מאפה שוקולד",
@@ -103,13 +128,16 @@ export const menu = [
   // },
   {
     category: 'בריה',
+      id:4,
     details:'330/500',
     title: 'מהחבית',
+    icon:beer2,
     image: Image8,
     items: [
       {
         name: 'סטלה ',
         price: 18,
+          id:1,
         alcoholPercent: '5.0%',
         origin: 'בלגיה',
         tasteNotes: 'מרירות עדינה, גוף קל',
@@ -122,6 +150,7 @@ export const menu = [
       {
         name: 'באדוויזר',
         price: 18,
+          id:1,
         alcoholPercent: '5.0%',
         origin: 'ארה"ב',
         tasteNotes: 'קלילה, מעט מתקתקה',
@@ -134,6 +163,7 @@ export const menu = [
       {
         name: 'מכבי',
         price: 18,
+          id:1,
         alcoholPercent: '5.0%',
         origin: 'ישראל',
         tasteNotes: 'גוף בינוני, טעם חיטה',
@@ -148,11 +178,13 @@ export const menu = [
   {
     category: ' בירה בקבוק',
     title: 'בבקבוק',
+    icon:beer4,
     image: Image1,
     items: [
       {
         name: 'היינקן',
         price: 20,
+          id:3,
         alcoholPercent: '5.0%',
         origin: 'הולנד',
         tasteNotes: 'מרירות עדינה, רעננה',
@@ -163,6 +195,7 @@ export const menu = [
       {
         name: 'גולדסטאר',
         price: 19,
+          id:2,
         alcoholPercent: '4.9%',
         origin: 'ישראל',
         tasteNotes: 'כהה, קרמלית',
@@ -175,11 +208,13 @@ export const menu = [
   {
     category: 'משקאות פרימיום',
     title: 'פרימיום',
+    icon:whisky3,
     image: Image6,
     items: [
       {
         name: 'ג’ין מותג פרימיום',
         price: 50,
+          id:1,
         alcoholPercent: '40%',
         origin: 'אנגליה',
         tasteNotes: 'חמימות, צמחי תיבול',
@@ -203,6 +238,7 @@ export const menu = [
     category: 'יין',
     title: 'יין אדום ולבן',
     image: Image2,
+    icon:wineGlass,
     items: [
       {
         name: 'קברנה סובניון',
@@ -230,6 +266,7 @@ export const menu = [
     category: 'יין בבקבוק',
     title: 'יין בבקבוק',
     image: Image8,
+    icon:winebuttiol,
     items: [
       {
         name: 'מרלו',

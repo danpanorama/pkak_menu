@@ -13,12 +13,14 @@ function Category(props) {
     <div
       onClick={movePage}
       style={{
-        backgroundImage: `linear-gradient(45deg ,transparent 0% 10%,rgb(0, 0, 0)60% 100% ),url(${props.category.image})`,
+        backgroundImage: `url(${props.category.image})`,
       }}
       className="categoryTab"
     >
       <div className="categoryFirstChild">
-        <p className="categoryHeader">{props.category.category}</p>
+        <p className="categoryHeader">
+          <img src={props.category.icon} alt="" className="icon spaceicon" />
+          {props.category.category} </p>
       </div>
     </div>
   );

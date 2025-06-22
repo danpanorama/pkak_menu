@@ -3,15 +3,22 @@ import CategoryHeader from "../components/headers/CategoryHeader";
 import RowInformation from "../components/menu/beer/RowInformation";
 import "../css/items.css";
 import PizzaCategory from "../components/menu/pizza/PizzaCategory";
-
+import { useState } from "react";
+import CartButtons from "../components/buttons/CartButtons";
+import PopUp from "../components/menu/pizza/PopUp";
 function ItemsPage(props) {
   const { category } = useParams();
   const location = useLocation();
   const categoryData = location.state;
+  const [selectedItem, setSelectedItem] = useState(null);
+  // סגירת הפופ-אפ
+  const closePopup = () => setSelectedItem(null);
+
+  // הפונקציה שמפעילה את הפופ-אפ עם פריט ספציפי
+  const openPopup = (item) => setSelectedItem(item);
 
   const renderDynamicComponent = () => {
     if (!categoryData) return null;
-
     const cat = categoryData.category.toLowerCase();
 
     switch (cat) {
@@ -25,24 +32,23 @@ function ItemsPage(props) {
         );
 
       case "פיצה":
+      case "לא פיצה":
         return (
-         <div className="pizzaBackground">
-           <div className="pizzaWrapperGrid">
-            {categoryData.items.map((item, index) => (
-             <PizzaCategory item={item} />
-            ))}
+          <div className="pizzaBackground">
+            <div className="pizzaWrapperGrid">
+              {categoryData.items.map((item, index) => (
+                <PizzaCategory
+                  key={index}
+                  item={item}
+                  onClick={() => openPopup(item)}
+                />
+              ))}
+            </div>
           </div>
-         </div>
         );
 
       default:
-        return (
-          <div className="itemsFirstChild">
-            {categoryData.items.map((e, i) => (
-              <RowInformation key={i} data={e} />
-            ))}
-          </div>
-        );
+        return <div className="pizzaBackground"></div>;
     }
   };
 
@@ -53,12 +59,19 @@ function ItemsPage(props) {
       <br />
       <br />
       <div className="beerHeader">
-        <CategoryHeader text={categoryData?.category || "טוען..."} />
+        <h1 className="categorySmallHeader">
+          {categoryData?.category || "טוען..."}
+        </h1>
         <p className="cw">{categoryData?.details || ""}</p>
       </div>
       <div className="line"></div>
 
       {renderDynamicComponent()}
+
+      {/* פופ-אפ */}
+         {selectedItem && (
+        <PopUp selectedItem={selectedItem} closePopup={closePopup} />
+      )}
     </div>
   );
 }

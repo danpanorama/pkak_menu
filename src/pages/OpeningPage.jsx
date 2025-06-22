@@ -9,7 +9,7 @@ function OpeningPage() {
   return (<TransitionAnimation>
     <motion.div 
 
-transition={{ duration: 0.75, ease: "easeInOut", delay: 0 }}
+transition={{ duration: 0.75, ease: "easeInOut",  }}
 initial={{ opacity: 1 }}
 animate={{ opacity: 1 }}
 exit={{

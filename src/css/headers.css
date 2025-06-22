@@ -2,6 +2,22 @@
     font-size: 3rem;
     color: white;
     direction: rtl;
+    padding: 10px 20px ;
+    background-color: black;
+    outline: 1px solid white;
+    outline-offset: -5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.categorySmallHeader{
+        font-size: 3rem;
+    color: white;
+    direction: rtl;
+    padding: 10px 20px ;
+  
 }
 .secondaryHeader{
     font-size: 3rem;
@@ -23,4 +39,9 @@
     background-color: rgba(3, 28, 50);
     padding: 5px 20px;
     border-radius: 10px;
+}
+
+.cupSize{
+    font-size: 2rem;
+   
 }
