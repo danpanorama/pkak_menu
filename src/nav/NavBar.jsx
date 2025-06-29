@@ -5,16 +5,17 @@ function NavBar() {
   return (
     <div className="navbar flex-col-center">
       <div className="navFirstChild">
-      
+      <Link to={"/"} >
         <div className="textLogoHolder flex-col-center">
           <TextLogo />
         </div>
-        <Link className="navMenuButton" to={"/"}>
+      </Link>
+      
+        <div className="navMenuButton" >
         <div className="lineMenu"></div>
         <div className="lineMenu"></div>
-        <div className="lineMenu"></div>
-        
-        </Link>
+        <div className="lineMenu"></div> 
+        </div>
       </div>
     </div>
   );

@@ -25,6 +25,7 @@ function ItemsPage(props) {
       case "בירה":
         return (
           <div className="itemsFirstChild">
+        
             {categoryData.items.map((e, i) => (
               <RowInformation key={i} data={e} />
             ))}

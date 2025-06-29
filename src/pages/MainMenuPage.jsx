@@ -11,12 +11,12 @@ function MainMenuPage() {
     <TransitionAnimation>
       <div className="flex-col-center">
         <motion.div
-          className="containerMainMenu mainMenu"
+         className="containerMainMenu mainMenu eat"
           transition={{ duration: 1, ease: "easeInOut" }}
           initial={{ opacity: 1 }}
           animate={{
             opacity: 1,
-            animation: "eatAnimation 2s ease-in-out forwards",
+            // animation: "eatAnimation 2s ease-in-out forwards",
           }}
           exit={{
             transition: { duration: 0.5 }, // משך זמן האנימציה ביציאה
@@ -26,7 +26,7 @@ function MainMenuPage() {
         ></motion.div>
         <motion.div
           className="menuGrid"
-          transition={{ duration: 0.75, ease: "easeInOut", delay: 2 }}
+          transition={{ duration: 0.75, ease: "easeInOut", delay: 1 }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{

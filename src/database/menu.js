@@ -127,7 +127,7 @@ export const menu = [
   //   ],
   // },
   {
-    category: 'בריה',
+    category: 'בירה',
       id:4,
     details:'330/500',
     title: 'מהחבית',

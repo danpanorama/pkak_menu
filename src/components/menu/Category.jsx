@@ -5,7 +5,6 @@ function Category(props) {
   const navigate = useNavigate();
 
   function movePage() {
-    
     navigate(`/item/${props.category.category}`, { state: props.category });
   }
 
