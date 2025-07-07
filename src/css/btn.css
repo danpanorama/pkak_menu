@@ -156,3 +156,20 @@
   color: #333;
   cursor: default;
 }
+
+.closeMenuButton{
+
+padding: 10px;
+  font-size: 30px;
+
+
+}
+
+.backLink{
+  padding: 10px;
+  background-color: whitesmoke;
+  margin-left: 10px;
+  border-radius: 4px;
+  color: black;
+  text-decoration: none;
+}

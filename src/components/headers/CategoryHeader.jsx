@@ -1,19 +1,7 @@
-
-import '../../css/headers.css';
-
+import "../../css/headers.css";
 
 function CategoryHeader(props) {
-
-
-
-  return (
-    <h1 className="categoryHeader ">
-  
-{props.text}
-   
-    </h1>
-  );
+  return <h1 className="categoryHeader ">{props.text}</h1>;
 }
-
 
 export default CategoryHeader;

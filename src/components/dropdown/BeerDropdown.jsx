@@ -1,4 +1,5 @@
 import "../../css/dropdown.css";
+import CartButtons from "../buttons/CartButtons";
 
 function BeerDropdown(props) {
   return (
@@ -35,7 +36,10 @@ function BeerDropdown(props) {
             <img src={props.data.logo} alt="" className="img" />
 
         </div>
+            
       </div>
+ <CartButtons item={props.data} />
+ 
     </div>
   );
 }

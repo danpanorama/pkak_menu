@@ -1,17 +1,24 @@
 import "../../css/btn.css";
 import { motion } from "framer-motion";
-import { useSelector } from "react-redux";
+import { useSelector,useDispatch } from "react-redux";
+import { useMemo } from "react";
+import { addItem } from "../../redux/reducers/orderReducer";
+import { addToCart } from "../../utils/cartHelper";
+
 
 function CartButtons({ item }) {
   const orders = useSelector((state) => state.order.data);
+  const dispatch = useDispatch();
 
-  // בדיקה אם המוצר הזה קיים בעגלה
-  const itemExists = orders.some((orderItem) => {
-    return (
+  const existingItem = orders.find(
+    (orderItem) =>
       orderItem.name === item.name &&
       JSON.stringify(orderItem.extras?.sort()) === JSON.stringify(item.extras?.sort())
-    );
-  });
+  );
+
+  const itemQuantity = existingItem ? existingItem.quantity : 0;
+
+
 
   return (
     <motion.div
@@ -20,10 +27,11 @@ function CartButtons({ item }) {
       animate={{ opacity: 1 }}
       className="buttonsHolder"
     >
-        {itemExists && <button className="btn minus">-</button>}
-      <button className="btn quantity">0</button>
-       <button className="btn plus">+</button>
-   
+<button onClick={() => addToCart(dispatch, item)} className="btn plus">+</button>
+
+  
+    <button className="btn quantity">{itemQuantity}</button>
+         {itemQuantity > 0 && <button className="btn minus">-</button>}
     </motion.div>
   );
 }

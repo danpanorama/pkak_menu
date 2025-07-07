@@ -1,7 +1,10 @@
 import "../../../css/pizza.css";
 import CartButtons from "../../buttons/CartButtons";
 
-function PizzaCategory(props) {
+
+// אני לא משתמש בזה זה מוכן לסקיצה שניה אם אני עושה הכל אותו דבר 
+
+function ProductsComp(props) {
   return (
     <div
         onClick={props.onClick}  // הקש על הפריט יפתח פופ-אפ
@@ -16,11 +19,11 @@ function PizzaCategory(props) {
         <p className="text max-h">{props.item?.materials}</p>
       </div>
       <p className="priceHeader ">{props.item?.price}₪ </p>
- 
+
   
-     {/* <CartButtons/> */}
+  
     </div>
   );
 }
 
-export default PizzaCategory;
+export default ProductsComp;

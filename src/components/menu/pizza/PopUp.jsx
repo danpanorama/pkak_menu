@@ -47,11 +47,11 @@ function PopUp({ selectedItem, closePopup }) {
             }
             className="cardInfoHolder"
           >
-            <p>{selectedItem.materials}</p>
-            <p>מחיר: {selectedItem.price} ש"ח</p>
+            <p className="text-popup" >{selectedItem.materials}</p>
+            <p className="text-popup" >מחיר: {selectedItem.price} ש"ח</p>
 
 
-            <CartButtons />
+            <CartButtons item={selectedItem} />
           </motion.div>
         </div>
       </div>

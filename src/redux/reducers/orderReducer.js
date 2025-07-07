@@ -8,24 +8,23 @@ const orderSlice = createSlice({
   name: "order",
   initialState,
   reducers: {
-    addItem: (state, action) => {
-      // action.payload => {name, price, extras, quantity, ...}
-      const item = action.payload;
-      // לבדוק אם כבר קיים פריט כזה עם אותם אקסטרות
-      const existingIndex = state.data.findIndex(
-        (orderItem) =>
-          orderItem.name === item.name &&
-          JSON.stringify(orderItem.extras?.sort()) === JSON.stringify(item.extras?.sort())
-      );
+   addItem: (state, action) => {
+  const item = action.payload;
+  const existingIndex = state.data.findIndex(
+    (orderItem) =>
+      orderItem.name === item.name &&
+      JSON.stringify(orderItem.extras?.sort()) === JSON.stringify(item.extras?.sort())
+  );
 
-      if (existingIndex >= 0) {
-        // אם הפריט קיים, להגדיל כמות
-        state.data[existingIndex].quantity += item.quantity;
-      } else {
-        // אם חדש, להוסיף להזמנה עם quantity
-        state.data.push({ ...item, quantity: item.quantity || 1 });
-      }
-    },
+  const quantityToAdd = item.quantity && Number.isFinite(item.quantity) ? item.quantity : 1;
+
+  if (existingIndex >= 0) {
+    state.data[existingIndex].quantity += quantityToAdd;
+  } else {
+    state.data.push({ ...item, quantity: quantityToAdd });
+  }
+},
+
 
     removeItem: (state, action) => {
       // action.payload => {name, extras}

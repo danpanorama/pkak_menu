@@ -16,7 +16,8 @@
 
 }
 .eat {
-  animation: eatAnimation 1s ease-in-out forwards;
+  animation: eatAnimation 1s ease-in-out forwards ;
+  animation-delay: .3s;
 }
 .mainMenu.exit {
   animation: exitMainMenuAnimation 1s forwards;

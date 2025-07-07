@@ -1,11 +1,11 @@
-.pizzaBackground {
+.productsBackground {
   background-image: linear-gradient(rgba(0, 0, 0, 0.816), rgba(0, 0, 0, 0.82)),
     url("../images/resize/ayadan.jpg");
   min-height: 100vh;
   background-size: cover;
   object-fit: cover;
 }
-.pizzaWrapperGrid {
+.productsWrapperGrid {
   padding: 10px;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -65,7 +65,7 @@ border-radius: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 999999;
+  z-index: 9999999999999999;
 
 }
 .itemImage{

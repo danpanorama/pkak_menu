@@ -32,8 +32,14 @@
     flex-direction: row-reverse;
     align-items: center;
     justify-content: space-between;
-    width: 90%;
+    border-bottom: 1px solid white;
     margin: 0 auto;
+    position: sticky;
+    top: 7vh;
+    left: 0;
+    z-index: 999999;
+    background-color: black;
+    width: 100%;
 }
 .bgb{
     background-color: rgba(3, 28, 50);
@@ -44,4 +50,7 @@
 .cupSize{
     font-size: 2rem;
    
+}
+.categoryDetails{
+    padding: 10px 20px;
 }

@@ -21,7 +21,9 @@ exit={{
     
     className="container homePage">
 
-   <WhiteLogo/>
+<div className="logoContainer">
+     <WhiteLogo/>
+</div>
    <div className="holdingPrimaryButton">
      <PrimaryButton text='MENU' to={'/mainMenu'} />
    </div>

@@ -1,12 +1,13 @@
 import "../../css/logo.css";
 
-function WhiteLogo() {
+function MenuLogo() {
   return (
-    <div className="">
+    <div className="menuLogo">
       <svg
         version="1.0"
         xmlns="http://www.w3.org/2000/svg"
-       
+         width="200"     // גודל קטן יותר
+  height="200"
         viewBox="0 0 900.000000 900.000000"
         preserveAspectRatio="xMidYMid meet"
       >
@@ -49,4 +50,4 @@ function WhiteLogo() {
   );
 }
 
-export default WhiteLogo;
+export default MenuLogo;
