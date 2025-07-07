@@ -22,7 +22,7 @@
 padding: 10px;
 }
 .infoSide{
-   
+   align-self: flex-start;
 }
 .imgSmall{
     height: 20px;

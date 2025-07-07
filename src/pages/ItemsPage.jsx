@@ -8,8 +8,12 @@ import CartButtons from "../components/buttons/CartButtons";
 import PopUp from "../components/menu/pizza/PopUp";
 import ProductsComp from "../components/menu/products/ProductsComp";
 import BeerItem from "../components/menu/beer/BeerItem";
+import { useSelector } from "react-redux";
+
 function ItemsPage(props) {
   const { category } = useParams();
+  const totalPrice = useSelector((state) => state.order.totalPrice);
+
   const location = useLocation();
   const categoryData = location.state;
   const [selectedItem, setSelectedItem] = useState(null);
@@ -100,6 +104,16 @@ function ItemsPage(props) {
          {selectedItem && (
         <PopUp selectedItem={selectedItem} closePopup={closePopup} />
       )}
+
+
+      {totalPrice > 0 && (
+  <div className="cartSummaryContainer">
+    <Link to="/cart" className="goToCartButton">
+      לצפייה בעגלה ({totalPrice.toFixed(2)} ₪)
+    </Link>
+  </div>
+)}
+
     </div>
   );
 }
