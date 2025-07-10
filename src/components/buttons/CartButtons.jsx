@@ -6,7 +6,7 @@ import { addItem } from "../../redux/reducers/orderReducer";
 import { addToCart } from "../../utils/cartHelper";
 
 
-function CartButtons({ item }) {
+function CartButtons({ item,closePopup }) {
   const orders = useSelector((state) => state.order.data);
   const dispatch = useDispatch();
 
@@ -27,11 +27,13 @@ function CartButtons({ item }) {
       animate={{ opacity: 1 }}
       className="buttonsHolder"
     >
-<button onClick={() => addToCart(dispatch, item)} className="btn plus">+</button>
+   <button onClick={() => {
+    addToCart(dispatch, item) 
+    closePopup()}} className="btn plus">הוסף להזמנה</button>
 
-  
-    <button className="btn quantity">{itemQuantity}</button>
-         {itemQuantity > 0 && <button className="btn minus">-</button>}
+{/*   
+    <button className="btn quantity">{itemQuantity}</button> */}
+         {/* {itemQuantity > 0 && <button className="btn minus">-</button>} */}
     </motion.div>
   );
 }

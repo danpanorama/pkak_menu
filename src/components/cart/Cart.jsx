@@ -25,17 +25,30 @@ function Cart() {
       className={`cartController ${hasItems ? "openCartController" : "closeCartController"} ${isOpen ? "expanded" : ""}`}
     >
       <div className="cartContent">
-        <h2>סך הכל: ₪{orders.totalPrice.toFixed(2)}</h2>
+        <h2 style={{fontSize:'20px'}}>סך הכל: ₪{orders.totalPrice.toFixed(2)}</h2>
 
         {isOpen && (
           <div className="cartItems">
             {Object.entries(groupedByCategory).map(([category, items]) => (
               <div key={category} className="cartCategory">
-                <h3>{category}</h3>
+                {/* <h3>{category}</h3> */}
                 <ul>
                   {items.map((item, index) => (
-                    <li key={index}>
-                      <span>{item.name}</span> - <span>₪{item.price}</span>
+                    <li  key={index}>
+                      {console.log(item)}
+                      <span style={{fontSize:'13px'}} >{item.name}</span> 
+<span style={{ fontSize: '13px',maxWidth:'100px', }}>
+  {item.extras?.length > 0
+    ? item.extras.map((change, index) => (
+        <span key={index}>
+          {change}
+          {index < item.extras.length - 1 ? ', ' : ''}
+        </span>
+      ))
+    : 'ללא שינויים'}
+</span>
+
+                       <span style={{fontSize:'13px'}}>₪{item.price}</span>
                     </li>
                   ))}
                 </ul>

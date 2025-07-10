@@ -2,8 +2,11 @@ import CartButtons from "../../buttons/CartButtons";
 import "../../../css/pizza.css";
 import { motion } from "framer-motion";
 import PopUpOptions from "./PopUpOptions";
+import { useState } from "react";
 
 function PopUp({ selectedItem, closePopup }) {
+    const [selectedChanges, setSelectedChanges] = useState([]); 
+
   const materialsArray = selectedItem.materials
     ? selectedItem.materials.split(",").map((mat) => mat.trim())
     : [];
@@ -35,11 +38,15 @@ function PopUp({ selectedItem, closePopup }) {
             className="cardInfoHolder"
           >
             <p className="text-popup">{selectedItem.description}</p>
-            <p className="text-popup">מחיר: {selectedItem.price} ש"ח</p>
+            <p className="text-popup">מחיר: ₪{selectedItem.price} </p>
 
-            <PopUpOptions materialsArray={selectedItem.materials.split(',')} />
+          <PopUpOptions
+  materialsArray={materialsArray}
+  selectedChanges={selectedChanges}
+  setSelectedChanges={setSelectedChanges}
+/>
 
-            <CartButtons item={selectedItem} />
+            <CartButtons closePopup={closePopup}   item={{ ...selectedItem, extras: selectedChanges }}  />
           </motion.div>
         </div>
       </div>
