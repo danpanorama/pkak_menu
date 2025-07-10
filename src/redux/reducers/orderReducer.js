@@ -22,6 +22,7 @@ const orderSlice = createSlice({
       const existingIndex = state.data.findIndex(
         (orderItem) =>
           orderItem.name === item.name &&
+          orderItem.size === item.size &&
           JSON.stringify(orderItem.extras?.sort()) === JSON.stringify(item.extras?.sort())
       );
 
@@ -41,6 +42,7 @@ const orderSlice = createSlice({
       const existingIndex = state.data.findIndex(
         (orderItem) =>
           orderItem.name === item.name &&
+          orderItem.size === item.size &&
           JSON.stringify(orderItem.extras?.sort()) === JSON.stringify(item.extras?.sort())
       );
 
@@ -61,10 +63,11 @@ const orderSlice = createSlice({
     },
 
     updateItemQuantity: (state, action) => {
-      const { name, extras, quantity } = action.payload;
+      const { name, size, extras, quantity } = action.payload;
       const existingIndex = state.data.findIndex(
         (orderItem) =>
           orderItem.name === name &&
+          orderItem.size === size &&
           JSON.stringify(orderItem.extras?.sort()) === JSON.stringify(extras?.sort())
       );
       if (existingIndex >= 0 && quantity > 0) {

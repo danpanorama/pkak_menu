@@ -147,7 +147,7 @@ export const menu = [
       pairing: 'בשרים, גבינות חצי קשות',
       volume: '500ml',
       description: 'לאגר אדמונית גרמנית עם סיומת חלקה ומתובלת',
-      img: IsraelFlag,
+      img: flag4,
       logo: stellaBattle
     },
     {
@@ -212,7 +212,7 @@ export const menu = [
       pairing: 'מאכלים קלים, פירות ים',
       volume: '330ml',
       description: 'בירת חיטה בלגית עם ניחוח רענן וטעם מרכך',
-      img: flag1,
+      img: us,
       logo: stellaBattle
     },
     {
@@ -225,7 +225,7 @@ export const menu = [
       pairing: 'בורגרים, צ׳יפס, אוכל מתובל',
       volume: '330ml',
       description: 'IPA סקוטית נועזת עם טעמים חדים של הדרים',
-      img: flag1,
+      img: flag5,
       logo: stellaBattle
     },
     {
@@ -251,7 +251,7 @@ export const menu = [
       pairing: 'עוף בגריל, פסטה ברוטב שמנת',
       volume: '330ml',
       description: 'בלונד בלגית מסורתית, עשירה אך מאוזנת',
-      img: flag1,
+      img: us,
       logo: stellaBattle
     }
 

@@ -56,8 +56,11 @@ padding: 10px;
     background-size: cover;
 }
 .dropdownHolder{
+ 
+}
+.holdBeerInfo{
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-between; 
 }

@@ -39,7 +39,7 @@
     53%{
         background-image: linear-gradient(rgba(0, 0, 0, 0.473), rgba(0, 0, 0, 0.622)), url('../images/resize/ayasit2.jpg');
 
-      filter: blur(4px);
+      filter: blur(0);
     }
     70% {
       

@@ -1,11 +1,13 @@
 import "../../css/dropdown.css";
+import BeerButtons from "../buttons/BeerButtons";
 import CartButtons from "../buttons/CartButtons";
 
 function BeerDropdown(props) {
   return (
     <div className={props.isActive && props.data.id == props.itemId ? "dropDownContainer" : "closeDropdownBeer"}>
       <div className="dropdownHolder">
-        <div className="infoSide">
+    <div className="holdBeerInfo">
+          <div className="infoSide">
           <h1 className="dropdownHeader" >{props.data.name}</h1>
 
           <div className="infoBeerRow">
@@ -36,9 +38,10 @@ function BeerDropdown(props) {
             <img src={props.data.logo} alt="" className="img" />
 
         </div>
-            
+    </div>
+             <BeerButtons item={props.data} />
       </div>
- <CartButtons item={props.data} />
+
  
     </div>
   );
