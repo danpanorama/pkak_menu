@@ -1,33 +1,113 @@
 
-import { useState,useEffect } from "react";
 
-function CartDropdownOptions({ materialsArray = [], selectedChanges, setSelectedChanges,item }) {
+// import { useState, useEffect } from "react";
+
+// function CartDropdownOptions({ materialsArray = [], selectedChanges, setSelectedChanges, item }) {
+//   const [changeOption, setChangeOption] = useState("noChanges");
+
+//   const processedMaterials = materialsArray.map((m) => `ללא ${m.trim()}`);
+
+//   useEffect(() => {
+//     if (typeof item.extras === "string" && item.extras.trim()) {
+//       const extrasArray = item.extras.split(",").map((m) => m.trim());
+//       const formattedExtras = extrasArray.map((extra) => `ללא ${extra}`);
+//       setSelectedChanges(formattedExtras);
+//       setChangeOption("withChanges");
+//     } else {
+//       setSelectedChanges([]);
+//       setChangeOption("noChanges");
+//     }
+//   }, [item.extras]);
+
+//   const toggleChange = (value) => {
+//     setSelectedChanges((prev) =>
+//       prev.includes(value)
+//         ? prev.filter((item) => item !== value)
+//         : [...prev, value]
+//     );
+//   };
+
+//   return (
+//     <div className="cartDropdown">
+//       <div className="flex-col-right">
+//         <label>
+//           <input
+//             type="radio"
+//             className="radioI"
+//             value="noChanges"
+//             checked={changeOption === "noChanges"}
+//             onChange={() => {
+//               setChangeOption("noChanges");
+//               setSelectedChanges([]);
+//             }}
+//           />
+//           ללא שינויים
+//         </label>
+
+//         <label>
+//           <input
+//             type="radio"
+//             className="radioI"
+//             value="withChanges"
+//             checked={changeOption === "withChanges"}
+//             onChange={() => setChangeOption("withChanges")}
+//           />
+//           הוספת שינויים
+//         </label>
+//       </div>
+
+//       {changeOption === "withChanges" && (
+//         <div>
+//           <p>בחר שינויים (אפשר כמה):</p>
+//           {processedMaterials.map((opt, index) => (
+//             <label key={index}>
+//               <input
+//                 type="checkbox"
+//                 className="radioI"
+//                 value={opt}
+//                 checked={selectedChanges.includes(opt)}
+//                 onChange={() => toggleChange(opt)}
+//               />
+//               {opt}
+//             </label>
+//           ))}
+//         </div>
+//       )}
+//     </div>
+//   );
+// }
+
+// export default CartDropdownOptions;
+
+
+import { useState, useEffect } from "react";
+
+function CartDropdownOptions({ item, selectedChanges, setSelectedChanges }) {
   const [changeOption, setChangeOption] = useState("noChanges");
 
-  const options = materialsArray.map((item) => `ללא ${item.trim()}`);
-
-   // הפוך את materials למערך (אם הוא סטרינג)
-  const materialsOptions =
+  // יצירת רשימת אפשרויות מתוך materials
+  const allChangeOptions =
     typeof item.materials === "string"
-      ? item.materials.split(",").map((m) => `ללא ${m.trim()}`)
-      : Array.isArray(item.materials)
-        ? item.materials.map((m) => `ללא ${m.trim?.() || m}`)
-        : [];
+      ? item.materials
+          .split(",")
+          .map((m) => `ללא ${m.trim()}`)
+      : [];
 
-useEffect(() => {
-  if (typeof item.extras === "string") {
-    const extrasArray = item.extras.split(",").map((m) => m.trim());
-    const formattedExtras = extrasArray.map((extra) => `ללא ${extra}`);
-    setSelectedChanges(formattedExtras);
-    setChangeOption("withChanges");
-  }
-}, [item.extras, setSelectedChanges]);
-
+  // אם item.extras הוא מערך, נשתמש בו כדי לקבוע שינויים קיימים
+  useEffect(() => {
+    if (Array.isArray(item.extras) && item.extras.length > 0) {
+      setSelectedChanges(item.extras);
+      setChangeOption("withChanges");
+    } else {
+      setSelectedChanges([]);
+      setChangeOption("noChanges");
+    }
+  }, [item]);
 
   const toggleChange = (value) => {
     setSelectedChanges((prev) =>
       prev.includes(value)
-        ? prev.filter((item) => item !== value)
+        ? prev.filter((v) => v !== value)
         : [...prev, value]
     );
   };
@@ -43,7 +123,7 @@ useEffect(() => {
             checked={changeOption === "noChanges"}
             onChange={() => {
               setChangeOption("noChanges");
-              setSelectedChanges([]); // אפס שינויים אם בחר "ללא שינויים"
+              setSelectedChanges([]);
             }}
           />
           ללא שינויים
@@ -62,10 +142,9 @@ useEffect(() => {
       </div>
 
       {changeOption === "withChanges" && (
-        <div className="">
+        <div className="dropdownRadio">
           <p>בחר שינויים (אפשר כמה):</p>
-       
-          {materialsArray.map((opt, index) => (
+          {allChangeOptions.map((opt, index) => (
             <label key={index}>
               <input
                 type="checkbox"

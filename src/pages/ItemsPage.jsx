@@ -126,13 +126,7 @@ function ItemsPage(props) {
       )}
 
 
-      {totalPrice > 0 && (
-  <div className="cartSummaryContainer">
-    <Link to="/cart" className="goToCartButton">
-      לצפייה בעגלה ({totalPrice.toFixed(2)} ₪)
-    </Link>
-  </div>
-)}
+
 <br /><br /><br /><br />
 <Cart/>
 

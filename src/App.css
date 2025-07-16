@@ -29,3 +29,18 @@ label{
    
     font-size: 1.6rem;
 }
+.flex{
+    display: flex;
+}
+.row{
+    flex-direction: row;
+}
+.aie{
+    align-items: flex-end;
+}
+.aic{
+    align-items: center;
+}
+.jce{
+    justify-content: flex-end;
+}

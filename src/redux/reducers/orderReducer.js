@@ -165,6 +165,22 @@ const orderSlice = createSlice({
       state.totalPrice = 0;
     },
 
+    // ✅ פעולה לעדכון Extras של פריט קיים
+updateItemExtras: (state, action) => {
+  const { name, size, oldExtras, newExtras } = action.payload;
+
+  const existingIndex = state.data.findIndex((orderItem) =>
+    isSameItem(orderItem, { name, size, extras: oldExtras })
+  );
+
+  if (existingIndex >= 0) {
+    state.data[existingIndex].extras = newExtras;
+  }
+
+  state.totalPrice = calculateTotalPrice(state.data);
+}
+,
+
     // ✅ עדכון כמות ידני
     updateItemQuantity: (state, action) => {
       const { name, size, extras, quantity } = action.payload;
@@ -187,6 +203,7 @@ export const {
   removeItem,
   clearOrder,
   updateItemQuantity,
+  updateItemExtras
 } = orderSlice.actions;
 
 export default orderSlice.reducer;

@@ -1,0 +1,29 @@
+.tipSelect {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-start;
+  margin: 20px 0;
+}
+
+.tipBox {
+  padding: 12px 18px;
+  background-color: #2e2e2e; /* שחור בהיר */
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.2s ease;
+  font-weight: bold;
+  border: 2px solid transparent;
+}
+.tipHeader{
+    text-align: right;
+}
+.tipBox:hover {
+  background-color: #3a3a3a;
+}
+
+.tipBox.selected {
+  background-color: #000;
+  border: 2px solid #ffcc00;
+  box-shadow: 0 0 10px rgba(255, 204, 0, 0.6);
+}
