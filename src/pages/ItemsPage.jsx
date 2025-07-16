@@ -3,12 +3,14 @@ import CategoryHeader from "../components/headers/CategoryHeader";
 import RowInformation from "../components/menu/beer/BeerItem";
 import "../css/items.css";
 import PizzaCategory from "../components/menu/pizza/PizzaCategory";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import CartButtons from "../components/buttons/CartButtons";
 import PopUp from "../components/menu/pizza/PopUp";
 import ProductsComp from "../components/menu/products/ProductsComp";
 import BeerItem from "../components/menu/beer/BeerItem";
 import { useSelector } from "react-redux";
+import Cart from "../components/cart/Cart";
+
 
 function ItemsPage(props) {
   const { category } = useParams();
@@ -19,6 +21,10 @@ function ItemsPage(props) {
   const [selectedItem, setSelectedItem] = useState(null);
   const [openDropdownId, setOpenDropdownId] = useState(null);
 
+ 
+   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   // סגירת הפופ-אפ
   const closePopup = () => setSelectedItem(null);
   // הפונקציה שמפעילה את הפופ-אפ עם פריט ספציפי
@@ -28,7 +34,7 @@ function ItemsPage(props) {
     const cat = categoryData.category.toLowerCase();
 
     switch (cat) {
-      case "בירה בקבוק":
+    
       case "בירה":
         return (
 
@@ -38,6 +44,7 @@ function ItemsPage(props) {
     key={i}
     data={e}
     isOpen={openDropdownId === e.id}
+    category={category}
     onToggle={() =>
       setOpenDropdownId((prev) => (prev === e.id ? null : e.id))
     }
@@ -55,6 +62,7 @@ function ItemsPage(props) {
               {categoryData.items.map((item, index) => (
                 <PizzaCategory
                   key={index}
+                  category={category}
                   item={item}
                   onClick={() => openPopup(item)}
                 />
@@ -64,7 +72,18 @@ function ItemsPage(props) {
         );
 
       default:
-        return <div className="pizzaBackground"></div>;
+        return     <div className="productsBackground">
+            <div className="productsWrapperGrid">
+              {categoryData.items.map((item, index) => (
+                <PizzaCategory
+                  key={index}
+                  category={category}
+                  item={item}
+                  onClick={() => openPopup(item)}
+                />
+              ))}
+            </div>
+          </div>;
     }
   };
 
@@ -78,6 +97,7 @@ function ItemsPage(props) {
         <h1 className="categorySmallHeader">
           {categoryData?.category || "טוען..."}
         </h1>
+        {/* <h1 className="categorySmallHeader" >צייסר ב 10</h1> */}
         <p className="cw categoryDetails">{categoryData?.details || ""}</p>
       </div>
 
@@ -102,7 +122,7 @@ function ItemsPage(props) {
 
       {/* פופ-אפ */}
          {selectedItem && (
-        <PopUp selectedItem={selectedItem} closePopup={closePopup} />
+        <PopUp category={category} selectedItem={selectedItem} closePopup={closePopup} />
       )}
 
 
@@ -113,6 +133,8 @@ function ItemsPage(props) {
     </Link>
   </div>
 )}
+<br /><br /><br /><br />
+<Cart/>
 
     </div>
   );

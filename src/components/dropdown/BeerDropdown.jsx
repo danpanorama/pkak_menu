@@ -39,7 +39,8 @@ function BeerDropdown(props) {
 
         </div>
     </div>
-             <BeerButtons item={props.data} />
+          <BeerButtons item={{ ...props.data,category: props.category }} />
+
       </div>
 
  

@@ -3,8 +3,8 @@ import "../../../css/menu.css";
 import BeerDropdown from "../../dropdown/BeerDropdown";
 import PkakOnly from "../../logo/PkakOnly";
 
-function BeerItem({ data, isOpen, onToggle }) {
-  return (
+function BeerItem({ data, isOpen, onToggle,category }) {
+  return ( 
     <div className="beerRowItem">
       <div
         onClick={onToggle}
@@ -21,7 +21,7 @@ function BeerItem({ data, isOpen, onToggle }) {
           </h2>
         </div>
       </div>
-      <BeerDropdown itemId={data.id} isActive={isOpen} data={data} />
+      <BeerDropdown category={category} itemId={data.id} isActive={isOpen} data={data} />
     </div>
   );
 }

@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { clearError } from "../redux/actions/errorActions";
+import { clearError } from "../../redux/actions/errorActions";
 
 export const ErrorBox = () => {
   const dispatch = useDispatch();

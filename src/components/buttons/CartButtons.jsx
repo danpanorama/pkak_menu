@@ -10,11 +10,13 @@ function CartButtons({ item,closePopup }) {
   const orders = useSelector((state) => state.order.data);
   const dispatch = useDispatch();
 
-  const existingItem = orders.find(
-    (orderItem) =>
-      orderItem.name === item.name &&
-      JSON.stringify(orderItem.extras?.sort()) === JSON.stringify(item.extras?.sort())
-  );
+const existingItem = orders.find(
+  (orderItem) =>
+    orderItem.name === item.name &&
+    JSON.stringify([...(orderItem.extras || [])].sort()) ===
+    JSON.stringify([...(item.extras || [])].sort())
+);
+
 
   const itemQuantity = existingItem ? existingItem.quantity : 0;
 

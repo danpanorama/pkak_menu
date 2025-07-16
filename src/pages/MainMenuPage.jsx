@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { menu } from "../database/menu";
 import MenuCategory from "../components/menu/MenuCategory";
 import Category from "../components/menu/Category";
+import Cart from "../components/cart/Cart";
 
 function MainMenuPage() {
   return (
@@ -39,6 +40,8 @@ function MainMenuPage() {
           ))}
         </motion.div>
       </div>
+      <br /><br /><br /><br />
+      <Cart/>
     </TransitionAnimation>
   );
 }
