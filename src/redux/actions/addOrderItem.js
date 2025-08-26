@@ -28,3 +28,25 @@ export const addOrderItem = (item) => async (dispatch) => {
     });
   }
 };
+
+
+export const updateDealOrder = (item) => async (dispatch) => {
+  try {
+ 
+
+    dispatch({
+      type: ADD_ORDER_ITEM,
+      data: { item },
+    });
+  } catch (error) {
+    const serverResponse = error.response?.data;
+
+    dispatch({
+      type: ERROR,
+      payload: {
+        header: serverResponse?.header || "שגיאה",
+        message: serverResponse?.message || "אירעה שגיאה בלתי צפויה.",
+      },
+    });
+  }
+};
