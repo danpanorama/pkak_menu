@@ -26,9 +26,10 @@ label{
     flex-direction: row;
     align-items: center;
     justify-content: center;  
-   
+ 
     font-size: 1.6rem;
 }
+
 .flex{
     display: flex;
 }

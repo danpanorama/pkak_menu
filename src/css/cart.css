@@ -45,7 +45,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  transition: max-height 0.5s ease;
+ transition: max-height 0.5s ease, opacity 0.3s ease;
   font-family: Arial, sans-serif;
   border: 1px solid white;
   direction: rtl;
@@ -60,7 +60,7 @@ margin-top: 5px;
   max-height: 80vh; /* פתיחה לגובה מוגבל */
   min-height: 50vh;
   transition: all .3s;
-  overflow: scroll;
+  overflow-y: scroll;
 
 }
 .cartItemLI{
@@ -88,7 +88,7 @@ margin-top: 5px;
 .cartContent {
   width: 100%;
   padding: 18px;
-  text-align: center;
+  text-align: right;
   box-sizing: border-box;
 }
 
@@ -134,7 +134,7 @@ margin-top: 5px;
   justify-content: space-between;
   margin: 5px 0;
   font-size: 16px;
-
+color: gray;
   padding-top: 10px;
 
 }
@@ -229,7 +229,9 @@ font-size: 20px;
   background-color: #008ecc;
 }
 
-
+.padpage{
+  padding: 0px 20px;
+}
 .lastAlerts{
  
   padding: 10px 20px;
@@ -271,3 +273,4 @@ font-size: 20px;
 .selects{
   margin-bottom: 10px;
 }
+

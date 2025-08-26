@@ -108,7 +108,13 @@ export const menu = [
         volume: '500ml',
         description: 'לאגר בלגית קלאסית עם איזון מושלם בין רעננות למרירות',
         img:flag1,
-        logo:stellaBattle
+        logo:stellaBattle,
+        deal:{
+          name:'',
+          price:10,
+          options:["וודקה", "ג’ין", "רום"],
+          selectedOption:null
+        }
       },
       {
         name: 'באדוויזר',
@@ -121,7 +127,13 @@ export const menu = [
         volume: '500ml',
         description: 'לאגר אמריקאית פופולרית, מתאימה לכל אירוע',
         img:us,
-        logo:stellaBattle
+        logo:stellaBattle,
+        deal:{
+          name:'',
+          price:10,
+          options:[],
+          selectedOptions:null
+        }
       },
       {
         name: 'מכבי',
@@ -134,7 +146,13 @@ export const menu = [
         volume: '500ml',
         description: 'הבחירה המקומית המובילה. קלאסית ישראלית!',
         img:IsraelFlag,
-        logo:stellaBattle
+        logo:stellaBattle,
+        deal:{
+          name:'',
+          price:10,
+          options:[],
+          selectedOptions:null
+        }
       },
 
          {
@@ -148,7 +166,13 @@ export const menu = [
       volume: '500ml',
       description: 'לאגר אדמונית גרמנית עם סיומת חלקה ומתובלת',
       img: flag4,
-      logo: stellaBattle
+      logo: stellaBattle,
+      deal:{
+        name:'',
+        price:10,
+        options:[],
+        selectedOptions:null
+      }
     },
     {
       name: 'שפירא IPA',
@@ -161,7 +185,13 @@ export const menu = [
       volume: '330ml',
       description: 'IPA ישראלית בועטת ומאוזנת עם ניחוחות פירותיים',
       img: IsraelFlag,
-      logo:stellaBattle
+      logo:stellaBattle,
+      deal:{
+        name:'',
+        price:10,
+        options:[],
+        selectedOptions:null
+      }
     },
     {
       name: 'בלו מון',
@@ -174,7 +204,13 @@ export const menu = [
       volume: '330ml',
       description: 'בירת חיטה אמריקאית עם טאץ׳ הדרי מרענן',
       img: us,
-      logo: stellaBattle
+      logo: stellaBattle,
+      deal:{
+        name:'',
+        price:10,
+        options:[],
+        selectedOptions:null
+      }
     },
     {
       name: 'מורטי',
@@ -187,7 +223,13 @@ export const menu = [
       volume: '330ml',
       description: 'דובדבנית כהה עם גוף עשיר וטעמים עמוקים',
       img: flag1,
-      logo: stellaBattle
+      logo: stellaBattle,
+           deal:{
+        name:'',
+        price:10,
+        options:[],
+        selectedOptions:null
+      }
     },
     {
       name: 'ליפמנס',
@@ -200,7 +242,13 @@ export const menu = [
       volume: '250ml',
       description: 'בירת פירות בלגית עם חמיצות עדינה וטעמים טבעיים',
       img: flag1,
-      logo: stellaBattle
+      logo: stellaBattle,
+           deal:{
+        name:'',
+        price:10,
+        options:[],
+        selectedOptions:null
+      }
     },
     {
       name: 'הוגארדן',
@@ -213,7 +261,13 @@ export const menu = [
       volume: '330ml',
       description: 'בירת חיטה בלגית עם ניחוח רענן וטעם מרכך',
       img: us,
-      logo: stellaBattle
+      logo: stellaBattle,
+           deal:{
+        name:'',
+        price:10,
+        options:[],
+        selectedOptions:null
+      }
     },
     {
       name: 'ברו דוג',
@@ -226,7 +280,13 @@ export const menu = [
       volume: '330ml',
       description: 'IPA סקוטית נועזת עם טעמים חדים של הדרים',
       img: flag5,
-      logo: stellaBattle
+      logo: stellaBattle,
+           deal:{
+        name:'',
+        price:10,
+        options:[],
+        selectedOptions:null
+      }
     },
     {
       name: 'קסטיל רוז',
@@ -239,7 +299,13 @@ export const menu = [
       volume: '330ml',
       description: 'בירת דובדבן בלגית חזקה ומתקתקה עם סיומת אלכוהולית',
       img: flag1,
-      logo: stellaBattle
+      logo: stellaBattle,
+           deal:{
+        name:'',
+        price:10,
+        options:[],
+        selectedOptions:null
+      }
     },
     {
       name: 'לף בלונד',
@@ -252,7 +318,13 @@ export const menu = [
       volume: '330ml',
       description: 'בלונד בלגית מסורתית, עשירה אך מאוזנת',
       img: us,
-      logo: stellaBattle
+      logo: stellaBattle,
+           deal:{
+        name:'',
+        price:10,
+        options:[],
+        selectedOptions:null
+      }
     }
 
 
@@ -353,7 +425,7 @@ export const menu = [
     ],
   },
   {
-    category: 'משקאות פרימיום',
+    category: 'פרימיום',
     title: 'פרימיום',
     icon:whisky3,
     image: Image6,

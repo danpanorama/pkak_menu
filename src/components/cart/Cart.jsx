@@ -1,7 +1,7 @@
 import "../../css/cart.css";
 import { motion } from "framer-motion";
 import { useSelector } from "react-redux";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CartItemList from "./CartItemList";
 import CartItemDropdown from "./CartItemDropdown";
 import TipSelect from "./TipSelect";
@@ -10,9 +10,26 @@ function Cart() {
   const orders = useSelector((state) => state.order);
   const [isOpen, setIsOpen] = useState(false);
   const [itemDropdown, setItemDropdown] = useState(null);
+const [selectedTip, setSelectedTip] = useState(0);
 
   const hasItems = orders.data.length > 0;
-  console.log(orders);
+ 
+const tipAmount = (orders.totalPrice * selectedTip) / 100;
+
+
+useEffect(() => {
+  const handleScroll = () => {
+    if (isOpen && window.scrollY > 50) {
+      setIsOpen(false); // סוגר בסטייל
+    }
+  };
+
+  window.addEventListener("scroll", handleScroll);
+  return () => window.removeEventListener("scroll", handleScroll);
+}, [isOpen]);
+
+
+
 
   // קיבוץ לפי קטגוריה
   const groupedByCategory = orders.data.reduce((acc, item) => {
@@ -34,12 +51,10 @@ function Cart() {
       <div className="cartContent">
         {!isOpen ? (
           <div onClick={() => setIsOpen(!isOpen)} className="orderIdAndPrice">
-            <h2 className="orderPriceCart">
-              ₪{orders.totalPrice.toFixed(2)}
-            </h2>
-            <h2  className="orderId">
+            <h2 className="orderPriceCart">₪{orders.totalPrice.toFixed(2)}</h2>
+            {/* <h2  className="orderId">
               #143209
-            </h2>
+            </h2> */}
           </div>
         ) : null}
 
@@ -50,6 +65,15 @@ function Cart() {
               setItemDropdown={setItemDropdown}
               groupedByCategory={groupedByCategory}
             />
+            <div className="padpage">
+              <p className="totalPrice">
+                דמי תפעול: ₪{Math.trunc(orders.totalPrice / 17)}
+              </p>
+
+              <p className="totalPrice ">
+                סך הכל :₪{orders.totalPrice.toFixed(2)}{" "}
+              </p>
+            </div>
             <div className="lineKav"></div>
             <div className="lastAlerts">
               <div className="notes">
@@ -73,7 +97,9 @@ function Cart() {
             </div>
             <div className="lineKav"></div>
             <div className="lastAlerts">
-              <TipSelect />
+
+           <TipSelect onSelectTip={(tip) => setSelectedTip(tip)} />
+
 
               <div className="lineKav"></div>
 
@@ -81,13 +107,15 @@ function Cart() {
                 <h1 className="closeDealHeader">סיכום הזמנה</h1>
                 <p className="totalPrice">
                   {" "}
-                  מס:₪{orders.totalPrice.toFixed(2)}{" "}
+                  דמי תפעול:₪{4}{" "}
                 </p>
+       
 
                 <p className="totalPrice">
                   {" "}
-                  טפ:₪{orders.totalPrice.toFixed(2)}{" "}
+                  טיפ:₪{tipAmount}
                 </p>
+
 
                 <p className="totalPrice">
                   סך הכל :₪{orders.totalPrice.toFixed(2)}{" "}

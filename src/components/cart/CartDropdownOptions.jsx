@@ -145,7 +145,7 @@ function CartDropdownOptions({ item, selectedChanges, setSelectedChanges }) {
         <div className="dropdownRadio">
           <p>בחר שינויים (אפשר כמה):</p>
           {allChangeOptions.map((opt, index) => (
-            <label key={index}>
+            <label className="margin_top10" key={index}>
               <input
                 type="checkbox"
                 className="radioI"

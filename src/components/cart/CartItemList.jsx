@@ -70,7 +70,13 @@ function CartItemList({ groupedByCategory,setItemDropdown,itemDropdown }) {
           </button>
         </div>
       </li>
-            <CartItemDropdown item={item} isOpen={itemDropdown === uniqueKey} />
+     
+
+      {item.category != "בירה" &&
+        <CartItemDropdown item={item} isOpen={itemDropdown === uniqueKey} />
+       
+      }
+          
 
      </div>
 

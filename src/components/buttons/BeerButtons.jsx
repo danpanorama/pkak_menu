@@ -1,45 +1,13 @@
 import "../../css/btn.css";
 import { motion } from "framer-motion";
-import { useSelector, useDispatch } from "react-redux";
 import { useMemo } from "react";
 import { addItem, removeItem } from "../../redux/reducers/orderReducer";
 import { addToCart } from "../../utils/cartHelper";
 import half from "../../icons/beer-svgrepo-com (2).svg";
-
 import third from "../../icons/beer-poured-into-glass-svgrepo-com.svg";
-
-function BeerButtons({ item }) {
-  const orders = useSelector((state) => state.order.data);
-  const dispatch = useDispatch();
-//   const existingItem = orders.find(
-//     (orderItem) =>
-//       orderItem.name === item.name &&
-//       JSON.stringify(orderItem.extras?.sort()) ===
-//         JSON.stringify(item.extras?.sort())
-//   );
-
-
-
-  const halfItem = orders.find(
-    (orderItem) =>
-      orderItem.name === item.name &&
-      orderItem.size === "half" &&
-      JSON.stringify(orderItem.extras?.sort()) ==
-        JSON.stringify(item.extras?.sort())
-  );
-
-  const thirdItem = orders.find(
-    (orderItem) =>
-      orderItem.name === item.name &&
-      orderItem.size === "third" &&
-      JSON.stringify(orderItem.extras?.sort()) ==
-        JSON.stringify(item.extras?.sort())
-  );
-
-  const halfQuantity = halfItem ? halfItem.quantity : 0;
-  const thirdQuantity = thirdItem ? thirdItem.quantity : 0;
-
-//   const itemQuantity = existingItem ? existingItem.quantity : 0;
+import { useSelector, useDispatch } from "react-redux";
+function BeerButtons({ item,thirdQuantity,halfQuantity }) {
+    const dispatch = useDispatch();
 
   return (
     <motion.div
