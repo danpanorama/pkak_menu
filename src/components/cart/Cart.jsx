@@ -17,16 +17,16 @@ const [selectedTip, setSelectedTip] = useState(0);
 const tipAmount = (orders.totalPrice * selectedTip) / 100;
 
 
-useEffect(() => {
-  const handleScroll = () => {
-    if (isOpen && window.scrollY > 50) {
-      setIsOpen(false); // סוגר בסטייל
-    }
-  };
+// useEffect(() => {
+//   const handleScroll = () => {
+//     if (isOpen && window.scrollY > 50) {
+//       setIsOpen(false); // סוגר בסטייל
+//     }
+//   };
 
-  window.addEventListener("scroll", handleScroll);
-  return () => window.removeEventListener("scroll", handleScroll);
-}, [isOpen]);
+//   window.addEventListener("scroll", handleScroll);
+//   return () => window.removeEventListener("scroll", handleScroll);
+// }, [isOpen]);
 
 
 

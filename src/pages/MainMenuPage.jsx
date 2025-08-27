@@ -9,7 +9,42 @@ import Cart from "../components/cart/Cart";
 
 function MainMenuPage() {
   return (
-    <TransitionAnimation>
+    // <TransitionAnimation>
+    //   <div className="flex-col-center">
+    //     <motion.div
+    //      className="containerMainMenu mainMenu eat"
+    //       transition={{ duration: 1, ease: "easeInOut" }}
+    //       initial={{ opacity: 1 }}
+    //       animate={{
+    //         opacity: 1,
+    //         // animation: "eatAnimation 2s ease-in-out forwards",
+    //       }}
+    //       exit={{
+    //         transition: { duration: 0.5 }, // משך זמן האנימציה ביציאה
+    //         animation: "exitMainMenuAnimation 1s", // אנימציה ספציפית ביציאה
+    //         animationFillMode: "forwards",
+    //       }}
+    //     ></motion.div>
+    //     <motion.div
+    //       className="menuGrid"
+    //       transition={{ duration: 0.75, ease: "easeInOut", delay: 1 }}
+    //       initial={{ opacity: 0 }}
+    //       animate={{ opacity: 1 }}
+    //       exit={{
+    //         transition: { delay: 0 },
+    //         opacity: 0,
+    //       }}
+    //     >
+    //       {menu.map((e, i) => (
+    //         <Category key={i} category={e} items={e.items} image={e.image} />
+    //       ))}
+    //     </motion.div>
+    //   </div>
+    //   <br /><br /><br /><br />
+    //   <Cart/>
+    // </TransitionAnimation>
+
+      <TransitionAnimation>
       <div className="flex-col-center">
         <motion.div
          className="containerMainMenu mainMenu eat"
@@ -21,13 +56,13 @@ function MainMenuPage() {
           }}
           exit={{
             transition: { duration: 0.5 }, // משך זמן האנימציה ביציאה
-            animation: "exitMainMenuAnimation 1s", // אנימציה ספציפית ביציאה
-            animationFillMode: "forwards",
+            // animation: "exitMainMenuAnimation 1s", // אנימציה ספציפית ביציאה
+            // animationFillMode: "forwards",
           }}
         ></motion.div>
         <motion.div
           className="menuGrid"
-          transition={{ duration: 0.75, ease: "easeInOut", delay: 1 }}
+          transition={{ duration: 0.75, ease: "easeInOut", delay: .5 }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{
@@ -43,6 +78,7 @@ function MainMenuPage() {
       <br /><br /><br /><br />
       <Cart/>
     </TransitionAnimation>
+ 
   );
 }
 
