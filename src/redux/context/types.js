@@ -4,3 +4,5 @@ export const CLEAR_ORDERS = "CLEAR_ORDERS";
 
 export const ERROR = "ERROR";
 export const CLEAR_ERROR = "CLEAR_ERROR"; 
+export const UPDATE_DEAL = "UPDATE_DEAL"; 
+

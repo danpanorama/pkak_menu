@@ -110,7 +110,7 @@ export const menu = [
         img:flag1,
         logo:stellaBattle,
         deal:{
-          name:'',
+          name:null,
           price:10,
           options:["וודקה", "ג’ין", "רום"],
           selectedOption:null
@@ -129,7 +129,7 @@ export const menu = [
         img:us,
         logo:stellaBattle,
         deal:{
-          name:'',
+          name:null,
           price:10,
           options:[],
           selectedOptions:null
@@ -148,7 +148,7 @@ export const menu = [
         img:IsraelFlag,
         logo:stellaBattle,
         deal:{
-          name:'',
+          name:null,
           price:10,
           options:[],
           selectedOptions:null
@@ -168,7 +168,7 @@ export const menu = [
       img: flag4,
       logo: stellaBattle,
       deal:{
-        name:'',
+        name:null,
         price:10,
         options:[],
         selectedOptions:null
@@ -187,7 +187,7 @@ export const menu = [
       img: IsraelFlag,
       logo:stellaBattle,
       deal:{
-        name:'',
+        name:null,
         price:10,
         options:[],
         selectedOptions:null
@@ -206,7 +206,7 @@ export const menu = [
       img: us,
       logo: stellaBattle,
       deal:{
-        name:'',
+        name:null,
         price:10,
         options:[],
         selectedOptions:null
@@ -225,7 +225,7 @@ export const menu = [
       img: flag1,
       logo: stellaBattle,
            deal:{
-        name:'',
+        name:null,
         price:10,
         options:[],
         selectedOptions:null
@@ -244,7 +244,7 @@ export const menu = [
       img: flag1,
       logo: stellaBattle,
            deal:{
-        name:'',
+        name:null,
         price:10,
         options:[],
         selectedOptions:null
@@ -263,7 +263,7 @@ export const menu = [
       img: us,
       logo: stellaBattle,
            deal:{
-        name:'',
+        name:null,
         price:10,
         options:[],
         selectedOptions:null
@@ -282,7 +282,7 @@ export const menu = [
       img: flag5,
       logo: stellaBattle,
            deal:{
-        name:'',
+        name:null,
         price:10,
         options:[],
         selectedOptions:null
@@ -301,7 +301,7 @@ export const menu = [
       img: flag1,
       logo: stellaBattle,
            deal:{
-        name:'',
+        name:null,
         price:10,
         options:[],
         selectedOptions:null
@@ -320,7 +320,7 @@ export const menu = [
       img: us,
       logo: stellaBattle,
            deal:{
-        name:'',
+        name:null,
         price:10,
         options:[],
         selectedOptions:null

@@ -1,7 +1,7 @@
 // redux/actions/orderActions.js
 
 // import axios from "axios";
-import { ADD_ORDER_ITEM, ERROR } from "../context/types";
+import { ADD_ORDER_ITEM, ERROR,UPDATE_DEAL } from "../context/types";
 
 export const addOrderItem = (item) => async (dispatch) => {
   try {
@@ -30,14 +30,17 @@ export const addOrderItem = (item) => async (dispatch) => {
 };
 
 
-export const updateDealOrder = (item) => async (dispatch) => {
+export const updateDealOrderAction = (data) => async (dispatch) => {
   try {
- 
 
-    dispatch({
-      type: ADD_ORDER_ITEM,
-      data: { item },
-    });
+
+ 
+console.log(data)
+
+    // dispatch({
+    //   type: UPDATE_DEAL,
+    //   data: { data },
+    // });
   } catch (error) {
     const serverResponse = error.response?.data;
 

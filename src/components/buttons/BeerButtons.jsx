@@ -25,7 +25,7 @@ function BeerButtons({ item,thirdQuantity,halfQuantity }) {
         </button>
 
         <button
-          onClick={() => addToCart(dispatch, { ...item, size: "third" })}
+          onClick={() => addToCart(dispatch, { ...item, size: "third",volume:"330ml" })}
           className="beerBtn"
         >
           שליש <img src={third} className="icon2" alt="" />

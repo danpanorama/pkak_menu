@@ -146,7 +146,7 @@ const orderSlice = createSlice({
       const item = action.payload;
       const existingIndex = state.data.findIndex((orderItem) =>
         isSameItem(orderItem, item)
-      );
+      ); 
 
       if (existingIndex >= 0) {
         if (state.data[existingIndex].quantity > 1) {
@@ -164,6 +164,22 @@ const orderSlice = createSlice({
       state.data = [];
       state.totalPrice = 0;
     },
+
+//     // ✅ עדכון הצ'ייסר (dealShot) לפריט ספציפי
+// updateItemDealShot: (state, action) => {
+//   const { Origin_Id, dealShot } = action.data;
+
+//   const existingIndex = state.data.findIndex(
+//     (orderItem) => orderItem.Origin_Id === Origin_Id
+//   );
+
+//   if (existingIndex >= 0) {
+//     state.data[existingIndex].deal = dealShot;
+//   }
+
+//   state.totalPrice = calculateTotalPrice(state.data);
+// },
+
 
     // ✅ פעולה לעדכון Extras של פריט קיים
 updateItemExtras: (state, action) => {

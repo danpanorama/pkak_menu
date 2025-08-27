@@ -38,7 +38,7 @@ function BeerDropdown(props) {
       // כל יחידה של חצי או שליש נותנת צייסר אחד
       return sum + item.quantity;
     }
-    return sum;
+    return sum; 
   }, 0);
 
   return (
@@ -86,15 +86,13 @@ function BeerDropdown(props) {
           halfQuantity={halfQuantity}
           thirdQuantity={thirdQuantity}
         />
-      </div>
-      
         <ShotInTen
-        item={{ ...props.data, category: props.category }}
-        isTrue={halfQuantity ||thirdQuantity ? true : false}
-        sum={sumShots}
-      />
-      
-    
+          item={{ ...props.data, category: props.category }}
+          isTrue={halfQuantity || thirdQuantity ? true : false}
+          sum={sumShots}
+        />
+      </div>
+
     </div>
   );
 }

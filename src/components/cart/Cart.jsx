@@ -13,20 +13,21 @@ function Cart() {
 const [selectedTip, setSelectedTip] = useState(0);
 
   const hasItems = orders.data.length > 0;
+  console.log(orders)
  
 const tipAmount = (orders.totalPrice * selectedTip) / 100;
 
 
-// useEffect(() => {
-//   const handleScroll = () => {
-//     if (isOpen && window.scrollY > 50) {
-//       setIsOpen(false); // סוגר בסטייל
-//     }
-//   };
+useEffect(() => {
+  const handleScroll = () => {
+    if (isOpen && window.scrollY > 50) {
+      setIsOpen(false); // סוגר בסטייל
+    }
+  };
 
-//   window.addEventListener("scroll", handleScroll);
-//   return () => window.removeEventListener("scroll", handleScroll);
-// }, [isOpen]);
+  window.addEventListener("scroll", handleScroll);
+  return () => window.removeEventListener("scroll", handleScroll);
+}, [isOpen]);
 
 
 
@@ -43,7 +44,8 @@ const tipAmount = (orders.totalPrice * selectedTip) / 100;
     <motion.div
       transition={{ duration: 0.5 }}
       initial={{ y: 100, opacity: 0 }}
-      animate={hasItems ? { y: 0, opacity: 1 } : { y: 100, opacity: 0 }}
+      animate={isOpen ? { y: 0, opacity: 1, height: "80vh" } : { y: 0, opacity: 1, height:  hasItems ? "10vh" : "0 " }}
+      // animate={hasItems ? { y: 0, opacity: 1 } : { y: 100, opacity: 0 }}
       className={`cartController ${
         hasItems ? "openCartController" : "closeCartController "
       } ${isOpen ? "expanded" : ""}`}
