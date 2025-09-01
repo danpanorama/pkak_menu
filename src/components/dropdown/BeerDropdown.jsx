@@ -14,7 +14,7 @@ function BeerDropdown(props) {
 
   const halfItem = orders.find(
     (orderItem) =>
-      orderItem.name === props.data.name &&
+      orderItem.id === props.data.id &&
       orderItem.size === "half" &&
       JSON.stringify(orderItem.extras?.sort()) ==
         JSON.stringify(props.data.extras?.sort())
@@ -22,7 +22,7 @@ function BeerDropdown(props) {
 
   const thirdItem = orders.find(
     (orderItem) =>
-      orderItem.name === props.data.name &&
+      orderItem.id === props.data.id &&
       orderItem.size === "third" &&
       JSON.stringify(orderItem.extras?.sort()) ==
         JSON.stringify(props.data.extras?.sort())

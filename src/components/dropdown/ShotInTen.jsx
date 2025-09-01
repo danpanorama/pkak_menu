@@ -40,7 +40,7 @@ function ShotInTen(props) {
     <>
       <div
         className={
-          props.isTrue
+          props.isTrue  
             ? "shotComponentContainer"
             : "closeShotComponentContainer"
         }

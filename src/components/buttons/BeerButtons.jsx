@@ -33,17 +33,28 @@ function BeerButtons({ item,thirdQuantity,halfQuantity }) {
       </div>
       <div className="beerButtonsHolder">
         {halfQuantity > 0 && (
-          <div>
+          <div className="buttonHolderBeer">
+          
             <img onClick={()=>{  dispatch(removeItem({ ...item, size: "half" }))}} src={half} className="icon2" alt="" />
             {halfQuantity}חצי
+           <span className="minusOne">
+            -
+           </span>
+           
           </div>
         )}
 
         {thirdQuantity > 0 && (
-          <div>
+          <div className="buttonHolderBeer">
             <img onClick={()=>{  dispatch(removeItem({ ...item, size: "third" }))}} src={third} className="icon2" alt="" />
             {thirdQuantity}שליש
+
+            <span className="minusOne">
+            -
+           </span>
+            
           </div>
+          
         )}
       </div>
 
