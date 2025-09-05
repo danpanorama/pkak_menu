@@ -2,7 +2,7 @@ import "../../css/logo.css";
 
 function WhiteLogo() {
   return (
-    <div className="">
+    <div className="z-index-1">
       <svg
         version="1.0"
         xmlns="http://www.w3.org/2000/svg"

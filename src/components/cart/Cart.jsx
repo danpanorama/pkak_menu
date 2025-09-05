@@ -10,7 +10,7 @@ function Cart() {
   const orders = useSelector((state) => state.order);
   const [isOpen, setIsOpen] = useState(false);
   const [itemDropdown, setItemDropdown] = useState(null);
-const [selectedTip, setSelectedTip] = useState(0);
+  const [selectedTip, setSelectedTip] = useState(0);
 
   const hasItems = orders.data.length > 0;
   console.log(orders)

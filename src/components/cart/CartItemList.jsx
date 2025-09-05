@@ -2,9 +2,15 @@ import "../../css/cart.css";
 import { useSelector, useDispatch } from "react-redux";
 import { addToCart,removeFromCart } from "../../utils/cartHelper";
 import CartItemDropdown from "./CartItemDropdown";
+import ShotInTen from "../dropdown/ShotInTen";
+import ShotPopup from "./ShotPopup";
+import { useState } from "react";
 
 
 function CartItemList({ groupedByCategory,setItemDropdown,itemDropdown }) {
+ const [openPopupFor, setOpenPopupFor] = useState(null); // סטייט ברמת CartItemList
+
+ 
   const sizeMap = {
     third: "שליש",
     half: "חצי",
@@ -38,16 +44,39 @@ function CartItemList({ groupedByCategory,setItemDropdown,itemDropdown }) {
           {item.size ? sizeMap[item.size] || item.size : ""}
         </span>
 
-        <span className="itemExtras">
-          {item.extras?.length > 0
-            ? item.extras.map((extra, i) => (
-                <span key={i}>
-                  {extra}
-                  {i < item.extras.length - 1 ? ", " : ""}
-                </span>
-              ))
-            : " "}
-        </span>
+     <span className="itemExtras">
+  {item.deal ? (
+    item.deal.selectedOptions ? (
+      <span>{item.deal.name}</span>
+    ) : (
+      <span
+        className="dealLink"
+        onClick={(e) => {
+          e.stopPropagation();
+          setOpenPopupFor(item.id);
+        }}
+      >
+        לחץ לקבלת צ'ייסר ב־10
+      </span>
+    )
+  ) : (
+    item.extras?.length > 0
+      ? item.extras.map((extra, i) => (
+          <span key={i}>
+            {extra}
+            {i < item.extras.length - 1 ? ", " : ""}
+          </span>
+        ))
+      : " "
+  )}
+</span>
+
+<ShotPopup
+  isOpen={openPopupFor === item.id}
+  onClose={() => setOpenPopupFor(null)}
+  item={item}
+/>
+
 
         <div className="cart-buttons">
           <button
