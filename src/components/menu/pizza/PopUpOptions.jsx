@@ -86,6 +86,7 @@ function PopUpOptions({ materialsArray = [], selectedChanges, setSelectedChanges
 
   return (
     <div className="popup-options">
+      <input type="radio" />
       <div className="flex-col-right">
         <label>
           <input
