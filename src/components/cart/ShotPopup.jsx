@@ -48,26 +48,47 @@
 // export default ShotPopup;
 import "../../css/dropdown.css";
 import ShotOf from "../../icons/shotof.svg";
-import { useDispatch } from "react-redux";
-import { addOrderItem, updateDealOrderAction } from "../../redux/actions/addOrderItem";
+import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../../utils/cartHelper";
+import { updateDealOrderAction } from "../../redux/actions/addOrderItem";
 
 function ShotPopup({ isOpen, onClose, item }) {
   const dispatch = useDispatch();
+  const orders = useSelector((state) => state.order.data);
 
   if (!isOpen) return null;
 
- const handleShotSelect = (shot) => {
-  console.log(item)
-  const itemWithDeal = { ...item, deal: { name: shot, selectedOptions: true } };
-  addToCart(dispatch, itemWithDeal); // dispatch כאן תקין
-  onClose();
-};
+  const handleShotSelect = (shot) => {
+    // בודק אם המוצר כבר קיים בעגלה לפי Origin_Id
+    const existingItem = orders.find((o) => o.Origin_Id === item.Origin_Id);
 
-const handleCloseWithoutDeal = () => {
-  addToCart(dispatch, { ...item, deal: { name: null, selectedOptions: false } });
-  onClose();
-};
+    if (existingItem) {
+      // אם קיים → מעדכן רק את deal
+      const updatedItem = { ...existingItem, deal: { name: shot, selectedOptions: true } };
+     console.log('yes its a existing item ')
+      dispatch(updateDealOrderAction(updatedItem));
+
+    } else {
+      // אם לא קיים → מוסיף חדש
+      const itemWithDeal = { ...item, deal: { name: shot, selectedOptions: true } };
+      addToCart(dispatch, itemWithDeal);
+    }
+
+    onClose();
+  };
+
+  const handleCloseWithoutDeal = () => {
+    const existingItem = orders.find((o) => o.Origin_Id === item.Origin_Id);
+
+    if (existingItem) {
+      const updatedItem = { ...existingItem, deal: { name: null, selectedOptions: false } };
+      addToCart(dispatch, updatedItem);
+    } else {
+      addToCart(dispatch, { ...item, deal: { name: null, selectedOptions: false } });
+    }
+
+    onClose();
+  };
 
   return (
     <div className="popupOverlay" onClick={handleCloseWithoutDeal}>
@@ -97,3 +118,4 @@ const handleCloseWithoutDeal = () => {
 }
 
 export default ShotPopup;
+

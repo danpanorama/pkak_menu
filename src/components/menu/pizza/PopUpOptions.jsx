@@ -86,11 +86,12 @@ function PopUpOptions({ materialsArray = [], selectedChanges, setSelectedChanges
 
   return (
     <div className="popup-options">
-      <input type="radio" />
+      <input type="radio" name="changes" />
       <div className="flex-col-right">
         <label>
           <input
             type="radio"
+            name="changes"
             className="radioI"
             value="noChanges"
             checked={changeOption === "noChanges"}
@@ -105,6 +106,7 @@ function PopUpOptions({ materialsArray = [], selectedChanges, setSelectedChanges
         <label>
           <input
             type="radio"
+            name="changes"
             className="radioI"
             value="withChanges"
             checked={changeOption === "withChanges"}
@@ -121,6 +123,7 @@ function PopUpOptions({ materialsArray = [], selectedChanges, setSelectedChanges
             <label key={index}>
               <input
                 type="checkbox"
+                name="changes"
                 className="radioI"
                 value={opt}
                 checked={selectedChanges.includes(opt)}
