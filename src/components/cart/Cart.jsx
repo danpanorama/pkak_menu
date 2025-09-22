@@ -6,6 +6,9 @@ import CartItemList from "./CartItemList";
 import CartItemDropdown from "./CartItemDropdown";
 import TipSelect from "./TipSelect";
 import CardChooseSection from "./CardChooseSection";
+import { useDispatch } from "react-redux";
+import { startOrder, orderPending } from "../../redux/reducers/orderStatusSlice";
+import { addOrderItem } from "../../redux/actions/addOrderItem";
 
 function Cart() {
   const orders = useSelector((state) => state.order);
@@ -18,6 +21,29 @@ function Cart() {
  
 const tipAmount = (orders.totalPrice * selectedTip) / 100;
 
+const dispatch = useDispatch();
+
+const handleSubmitOrder = () => {
+  console.log('here')
+  // 1. מציג מצב loading
+  dispatch(startOrder());
+
+  // 2. סימולציה של שליחה לשרת
+  setTimeout(() => {
+    const orderData = {
+      id: Math.floor(Math.random() * 100000),
+      eta: 20, // זמן משוער בדקות
+      items: orders.data,
+      totalPrice: orders.totalPrice,
+    };
+
+    // שולח לרדיוסר של סטטוס ההזמנה
+    dispatch(orderPending(orderData));
+
+    // שולח כל פריט לרדיוסר של orders אם צריך
+    orders.data.forEach(item => dispatch(addOrderItem(item)));
+  }, 1000);
+};
 
 useEffect(() => {
   const handleScroll = () => {
@@ -105,6 +131,9 @@ useEffect(() => {
 
 
               <div className="lineKav"></div>
+                 <p className="totalPrice ">
+              כרטיס אשראי לבחירה
+              </p>
 
 <CardChooseSection/>
 
@@ -139,7 +168,7 @@ useEffect(() => {
               >
                 חזרה להזמנה
               </button>
-              <button className="cart-btn submit">בצע הזמנה</button>
+              <button  onClick={handleSubmitOrder}  className="cart-btn submit">בצע הזמנה</button>
             </div>
           </>
         )}

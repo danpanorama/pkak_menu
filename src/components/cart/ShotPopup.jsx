@@ -96,7 +96,7 @@ function ShotPopup({ isOpen, onClose, item }) {
         className="popupContent"
         onClick={(e) => e.stopPropagation()}
       >
-        <h2 className="shotHeader">בחר את הצ'ייסר שלך</h2>
+        <h2 className="shotHeader">  צ'ייסר  ב 10 שח?</h2>
         <div className="shotsGrid">
           {["וודקה", "טקילה", "ויסקי", "ארק", "ליקר", "רום"].map(
             (shot, index) => (
@@ -111,7 +111,7 @@ function ShotPopup({ isOpen, onClose, item }) {
             )
           )}
         </div>
-        <button className="exitBtn" onClick={handleCloseWithoutDeal}>X</button>
+        <button className="exitBtn" onClick={handleCloseWithoutDeal}>לא תודה</button>
       </div>
     </div>
   );
