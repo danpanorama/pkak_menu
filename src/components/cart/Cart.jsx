@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import CartItemList from "./CartItemList";
 import CartItemDropdown from "./CartItemDropdown";
 import TipSelect from "./TipSelect";
+import CardChooseSection from "./CardChooseSection";
 
 function Cart() {
   const orders = useSelector((state) => state.order);
@@ -104,6 +105,12 @@ useEffect(() => {
 
 
               <div className="lineKav"></div>
+
+<CardChooseSection/>
+
+              <div className="lineKav"></div>
+
+              {/* פה יהיה הקומפוננט של בחירת כרטיס אשראי  */}
 
               <div className="dropdownRadio">
                 <h1 className="closeDealHeader">סיכום הזמנה</h1>

@@ -111,25 +111,50 @@ function BeerDropdown(props) {
   const [openPopUp, setPopUpState] = useState({ isOpen: false, data: {} });
   const orders = useSelector((state) => state.order.data);
 
-  const halfItem = orders.find(
-    (orderItem) =>
-      orderItem.id === props.data.id &&
-      orderItem.size === "half" &&
-      JSON.stringify(orderItem.extras?.sort()) ===
-        JSON.stringify(props.data.extras?.sort())
-  );
+  // const halfItem = orders.filter(
+  //   (orderItem) =>
+  //     orderItem.id === props.data.id &&
+  //     orderItem.size === "half" &&
+  //     JSON.stringify(orderItem.extras?.sort()) ===
+  //       JSON.stringify(props.data.extras?.sort())
+  // );
 
-  const thirdItem = orders.find(
-    (orderItem) =>
-      orderItem.id === props.data.id &&
-      orderItem.size === "third" &&
-      JSON.stringify(orderItem.extras?.sort()) ===
-        JSON.stringify(props.data.extras?.sort())
-  );
+  // // החלפתי פה את ה FIND ב FILTER order.find 
 
-  const halfQuantity = halfItem ? halfItem.quantity : 0;
-  const thirdQuantity = thirdItem ? thirdItem.quantity : 0;
+  // const thirdItem = orders.filter(
+  //   (orderItem) =>
+  //     orderItem.id === props.data.id &&
+  //     orderItem.size === "third" &&
+  //     JSON.stringify(orderItem.extras?.sort()) ===
+  //       JSON.stringify(props.data.extras?.sort())
+  // );
 
+  // const halfQuantity = halfItem ? halfItem.quantity : 0;
+  // const thirdQuantity = thirdItem ? thirdItem.quantity : 0;
+
+
+
+
+
+
+  const halfItem = orders.filter(
+  (orderItem) =>
+    orderItem.id === props.data.id &&
+    orderItem.size === "half" &&
+    JSON.stringify(orderItem.extras?.sort()) ===
+      JSON.stringify(props.data.extras?.sort())
+);
+
+const thirdItem = orders.filter(
+  (orderItem) =>
+    orderItem.id === props.data.id &&
+    orderItem.size === "third" &&
+    JSON.stringify(orderItem.extras?.sort()) ===
+      JSON.stringify(props.data.extras?.sort())
+);
+
+const halfQuantity = halfItem.reduce((sum, item) => sum + item.quantity, 0);
+const thirdQuantity = thirdItem.reduce((sum, item) => sum + item.quantity, 0);
   const sumShots = orders.reduce((sum, item) => {
     if (item.deal) {
       return sum + item.quantity;

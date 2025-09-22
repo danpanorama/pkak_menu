@@ -3,6 +3,11 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   data: [],
   totalPrice: 0,
+    selectedCard: null, // כרטיס אשראי שנבחר
+  cards: [        // כרטיסים שמורים, לדוגמה
+    { id: 1, last4: "1234", type: "Visa" },
+    { id: 2, last4: "5678", type: "MasterCard" },
+  ],
 };
 
 // חישוב מחיר כולל
@@ -36,6 +41,16 @@ const orderSlice = createSlice({
 
       state.totalPrice = calculateTotalPrice(state.data);
     },
+
+
+
+    selectCard: (state, action) => {
+  state.selectedCard = action.payload; // אובייקט הכרטיס שנבחר
+},
+addNewCard: (state, action) => {
+  state.cards.push(action.payload); // מוסיף כרטיס חדש
+},
+
 
     // ✅ הסרת פריט לפי Origin_Id
     removeItem: (state, action) => {
@@ -92,6 +107,34 @@ const orderSlice = createSlice({
       state.totalPrice = calculateTotalPrice(state.data);
     },
 
+
+
+
+quickRemoveItem: (state, action) => {
+  const { id, size, extras } = action.payload;
+
+  const existingIndex = state.data.findIndex(
+    (orderItem) =>
+      orderItem.id === id &&
+      orderItem.size === size &&
+      JSON.stringify(orderItem.extras || []) === JSON.stringify(extras || [])
+  );
+
+  if (existingIndex >= 0) {
+    if (state.data[existingIndex].quantity > 1) {
+      state.data[existingIndex].quantity -= 1;
+    } else {
+      state.data.splice(existingIndex, 1); // מוחק רק את הראשון שמצא
+    }
+  }
+
+  state.totalPrice = calculateTotalPrice(state.data);
+},
+
+
+
+
+
     // ✅ אפשרות להוסיף צ’ייסר / dealShot לפריט לפי Origin_Id
     updateItemDealShot: (state, action) => {
       const { Origin_Id, dealShot } = action.payload;
@@ -116,6 +159,10 @@ export const {
   updateItemQuantity,
   updateItemExtras,
   updateItemDealShot,
+    quickRemoveItem, // 👈 חדש
+    addNewCard,
+    selectCard,
+
 } = orderSlice.actions;
 
 export default orderSlice.reducer;

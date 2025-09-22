@@ -1,0 +1,130 @@
+.cardsGrid {
+  display: flex;
+  gap: 10px;
+  margin: 10px 0;
+}
+.cardBox {
+  width: 80px;
+  height: 50px;
+  background-color: #333;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.cardBox.selected {
+  border: 2px solid #00aaff;
+}
+.cardBox.addCard {
+  background-color: #555;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+
+.cardPopupOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  animation: cardPopupFade 0.3s ease;
+}
+
+.cardPopupContent {
+  background-color: #1c1c1c;
+  border-radius: 20px;
+  padding: 30px 25px;
+  width: 90%;
+  max-width: 300px;
+  color: #fff;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  transform: scale(0.95);
+  animation: cardPopupScale 0.3s forwards;
+}
+
+.cardPopupHeader {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.cardPopupInput {
+  width: 100%;
+  padding: 10px 12px; /* אפשר לכוונן לפי הצורך */
+  border-radius: 12px;
+  border: none;
+  font-size: 1rem;
+  background-color: #333;
+  color: #fff;
+  transition: all 0.2s ease;
+  box-sizing: border-box; /* <--- הפתרון */
+}
+
+
+.cardPopupInput::placeholder {
+  color: #aaa;
+}
+
+.cardPopupInput:focus {
+  outline: none;
+  background-color: #444;
+  box-shadow: 0 0 8px #00aaff;
+}
+
+.cardPopupButtons {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.cardPopupBtn {
+  flex: 1;
+  padding: 12px;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+  border: none;
+}
+
+.saveCardBtn {
+  background-color: #00aaff;
+  color: white;
+}
+
+.saveCardBtn:hover {
+  background-color: #008ecc;
+}
+
+.closeCardBtn {
+  background-color: #555;
+  color: white;
+}
+
+.closeCardBtn:hover {
+  background-color: #444;
+}
+
+@keyframes cardPopupFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes cardPopupScale {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}

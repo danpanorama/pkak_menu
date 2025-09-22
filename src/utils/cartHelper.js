@@ -27,7 +27,7 @@
 // };
 
 
-import { addItem, removeItem } from "../redux/reducers/orderReducer";
+import { addItem, quickRemoveItem, removeItem } from "../redux/reducers/orderReducer";
 
 // תמיד מוסיף אחד
 export const addToCart = (dispatch, item) => {
@@ -58,4 +58,10 @@ export const addToCart = (dispatch, item) => {
 // תמיד מוריד אחד
 export const removeFromCart = (dispatch, item) => {
   dispatch(removeItem(item));
+};
+
+
+// תמיד מוריד אחד
+export const QuickRemoveFromCart = (dispatch, item) => {
+  dispatch(quickRemoveItem(item));
 };

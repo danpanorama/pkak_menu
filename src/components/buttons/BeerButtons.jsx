@@ -84,7 +84,7 @@
 import "../../css/btn.css";
 import { motion } from "framer-motion";
 import { useDispatch } from "react-redux";
-import { addToCart, removeFromCart } from "../../utils/cartHelper";
+import { addToCart, QuickRemoveFromCart, removeFromCart } from "../../utils/cartHelper";
 import half from "../../icons/beer-svgrepo-com (2).svg";
 import third from "../../icons/beer-poured-into-glass-svgrepo-com.svg";
 
@@ -116,7 +116,7 @@ function BeerButtons({ item, thirdQuantity, halfQuantity, setPopUpState }) {
         {halfQuantity > 0 && (
           <div className="buttonHolderBeer">
             <img
-              onClick={() => removeFromCart(dispatch, { ...item, size: "half" })}
+              onClick={() => QuickRemoveFromCart(dispatch, { ...item, size: "half" })}
               src={half}
               className="icon2"
               alt=""
@@ -129,7 +129,7 @@ function BeerButtons({ item, thirdQuantity, halfQuantity, setPopUpState }) {
         {thirdQuantity > 0 && (
           <div className="buttonHolderBeer">
             <img
-              onClick={() => removeFromCart(dispatch, { ...item, size: "third" })}
+              onClick={() => QuickRemoveFromCart(dispatch, { ...item, size: "third" })}
               src={third}
               className="icon2"
               alt=""
