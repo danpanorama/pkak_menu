@@ -51,7 +51,13 @@ addNewCard: (state, action) => {
   state.cards.push(action.payload); // מוסיף כרטיס חדש
 },
 
-
+   // ✅ ניקוי כל העגלה
+    clearOrder: (state) => {
+      state.data = [];
+      state.totalPrice = 0;
+      state.selectedCard = null;
+    },
+  
     // ✅ הסרת פריט לפי Origin_Id
     removeItem: (state, action) => {
       const item = action.payload;
@@ -71,11 +77,7 @@ addNewCard: (state, action) => {
       state.totalPrice = calculateTotalPrice(state.data);
     },
 
-    // ✅ ניקוי כל העגלה
-    clearOrder: (state) => {
-      state.data = [];
-      state.totalPrice = 0;
-    },
+  
 
     // ✅ עדכון כמות ידני לפי Origin_Id
     updateItemQuantity: (state, action) => {
@@ -162,7 +164,6 @@ export const {
     quickRemoveItem, // 👈 חדש
     addNewCard,
     selectCard,
-
 } = orderSlice.actions;
 
 export default orderSlice.reducer;

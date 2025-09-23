@@ -51,9 +51,36 @@ function CardPopup({ isOpen, onClose }) {
   if (!isOpen) return null;
 
   const handleAddCard = () => {
-    dispatch(addNewCard({ id: Date.now(), last4: number.slice(-4), type: "Visa" }));
-    onClose();
-  };
+  if (!number.trim() || !expiry.trim() || !cvv.trim()) {
+    alert("נא למלא את כל הפרטים"); 
+    return;
+  }
+
+  // בדיקה בסיסית שהמספר הוא לפחות 12 ספרות
+  if (number.length < 12) {
+    alert("מספר כרטיס לא תקין");
+    return;
+  }
+
+  // בדיקה שהתוקף בפורמט MM/YY
+  const expiryRegex = /^(0[1-9]|1[0-2])\/\d{2}$/;
+  if (!expiryRegex.test(expiry)) {
+    alert("תוקף חייב להיות בפורמט MM/YY");
+    return;
+  }
+
+  // בדיקה ש־CVV הוא 3 או 4 ספרות
+  if (!/^\d{3,4}$/.test(cvv)) {
+    alert("CVV לא תקין");
+    return;
+  }
+
+  dispatch(
+    addNewCard({ id: Date.now(), last4: number.slice(-4), type: "Visa" })
+  );
+  onClose();
+};
+
 
   return (
     <div className="cardPopupOverlay" onClick={onClose}>
@@ -61,6 +88,7 @@ function CardPopup({ isOpen, onClose }) {
         <h2 className="cardPopupHeader">הוסף כרטיס חדש</h2>
         <input
           className="cardPopupInput"
+          required
           placeholder="מספר כרטיס"
           value={number}
           onChange={(e) => setNumber(e.target.value)}
@@ -68,6 +96,7 @@ function CardPopup({ isOpen, onClose }) {
         <input
           className="cardPopupInput"
           placeholder="תוקף"
+          required
           value={expiry}
           onChange={(e) => setExpiry(e.target.value)}
         />

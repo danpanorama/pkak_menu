@@ -114,9 +114,11 @@ function BeerButtons({ item, thirdQuantity, halfQuantity, setPopUpState }) {
 
       <div className="beerButtonsHolder">
         {halfQuantity > 0 && (
-          <div className="buttonHolderBeer">
+          <div 
+                        onClick={() => QuickRemoveFromCart(dispatch, { ...item, size: "half" })}
+
+          className="buttonHolderBeer">
             <img
-              onClick={() => QuickRemoveFromCart(dispatch, { ...item, size: "half" })}
               src={half}
               className="icon2"
               alt=""
@@ -127,9 +129,11 @@ function BeerButtons({ item, thirdQuantity, halfQuantity, setPopUpState }) {
         )}
 
         {thirdQuantity > 0 && (
-          <div className="buttonHolderBeer">
+          <div
+                        onClick={() => QuickRemoveFromCart(dispatch, { ...item, size: "third" })}
+
+           className="buttonHolderBeer">
             <img
-              onClick={() => QuickRemoveFromCart(dispatch, { ...item, size: "third" })}
               src={third}
               className="icon2"
               alt=""

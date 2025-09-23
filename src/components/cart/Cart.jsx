@@ -7,8 +7,12 @@ import CartItemDropdown from "./CartItemDropdown";
 import TipSelect from "./TipSelect";
 import CardChooseSection from "./CardChooseSection";
 import { useDispatch } from "react-redux";
-import { startOrder, orderPending } from "../../redux/reducers/orderStatusSlice";
+import {
+  startOrder,
+  orderPending,
+} from "../../redux/reducers/orderStatusSlice";
 import { addOrderItem } from "../../redux/actions/addOrderItem";
+import { clearOrder } from "../../redux/reducers/orderReducer";
 
 function Cart() {
   const orders = useSelector((state) => state.order);
@@ -17,47 +21,58 @@ function Cart() {
   const [selectedTip, setSelectedTip] = useState(0);
 
   const hasItems = orders.data.length > 0;
-  console.log(orders)
- 
-const tipAmount = (orders.totalPrice * selectedTip) / 100;
 
-const dispatch = useDispatch();
+  const tipAmount = (orders.totalPrice * selectedTip) / 100;
+
+  const dispatch = useDispatch();
+
+// const handleSubmitOrder = () => {
+//   // 1. יצירת מזהה והזמנה
+//   const orderData = {
+//     id: Math.floor(Math.random() * 100000),
+//     eta: 20, // זמן משוער בדקות
+//     items: orders.data,
+//     totalPrice: orders.totalPrice,
+//   };
+
+//   // 2. שולח ל־Redux
+//   dispatch(startOrder(orderData));  // ✅ שולח payload עם id ו eta
+//   dispatch(orderPending(orderData));
+
+//   // 3. מנקה עגלה
+//   dispatch(clearOrder());
+
+//   // 4. שולח כל פריט לרדיוסר של orders אם צריך
+//   orders.data.forEach((item) => dispatch(addOrderItem(item)));
+// };
+
+
 
 const handleSubmitOrder = () => {
-  console.log('here')
-  // 1. מציג מצב loading
-  dispatch(startOrder());
+  const orderData = {
+    id: Math.floor(Math.random() * 100000),
+    eta: 20,
+    items: orders.data,
+    totalPrice: orders.totalPrice,
+  };
 
-  // 2. סימולציה של שליחה לשרת
+  dispatch(startOrder(orderData)); // חשוב! צריך את ה-id
   setTimeout(() => {
-    const orderData = {
-      id: Math.floor(Math.random() * 100000),
-      eta: 20, // זמן משוער בדקות
-      items: orders.data,
-      totalPrice: orders.totalPrice,
-    };
-
-    // שולח לרדיוסר של סטטוס ההזמנה
     dispatch(orderPending(orderData));
-
-    // שולח כל פריט לרדיוסר של orders אם צריך
-    orders.data.forEach(item => dispatch(addOrderItem(item)));
+    dispatch(clearOrder());
   }, 1000);
 };
 
-useEffect(() => {
-  const handleScroll = () => {
-    if (isOpen && window.scrollY > 50) {
-      setIsOpen(false); // סוגר בסטייל
-    }
-  };
+  useEffect(() => {
+    const handleScroll = () => {
+      if (isOpen && window.scrollY > 50) {
+        setIsOpen(false); // סוגר בסטייל
+      }
+    };
 
-  window.addEventListener("scroll", handleScroll);
-  return () => window.removeEventListener("scroll", handleScroll);
-}, [isOpen]);
-
-
-
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [isOpen]);
 
   // קיבוץ לפי קטגוריה
   const groupedByCategory = orders.data.reduce((acc, item) => {
@@ -71,7 +86,11 @@ useEffect(() => {
     <motion.div
       transition={{ duration: 0.5 }}
       initial={{ y: 100, opacity: 0 }}
-      animate={isOpen ? { y: 0, opacity: 1, height: "80vh" } : { y: 0, opacity: 1, height:  hasItems ? "10vh" : "0 " }}
+      animate={
+        isOpen
+          ? { y: 0, opacity: 1, height: "80vh" }
+          : { y: 0, opacity: 1, height: hasItems ? "10vh" : "0 " }
+      }
       // animate={hasItems ? { y: 0, opacity: 1 } : { y: 100, opacity: 0 }}
       className={`cartController ${
         hasItems ? "openCartController" : "closeCartController "
@@ -126,16 +145,12 @@ useEffect(() => {
             </div>
             <div className="lineKav"></div>
             <div className="lastAlerts">
-
-           <TipSelect onSelectTip={(tip) => setSelectedTip(tip)} />
-
+              <TipSelect onSelectTip={(tip) => setSelectedTip(tip)} />
 
               <div className="lineKav"></div>
-                 <p className="totalPrice ">
-              כרטיס אשראי לבחירה
-              </p>
+              <p className="totalPrice ">כרטיס אשראי לבחירה</p>
 
-<CardChooseSection/>
+              <CardChooseSection />
 
               <div className="lineKav"></div>
 
@@ -143,17 +158,9 @@ useEffect(() => {
 
               <div className="dropdownRadio">
                 <h1 className="closeDealHeader">סיכום הזמנה</h1>
-                <p className="totalPrice">
-                  {" "}
-                  דמי תפעול:₪{4}{" "}
-                </p>
-       
+                <p className="totalPrice"> דמי תפעול:₪{4} </p>
 
-                <p className="totalPrice">
-                  {" "}
-                  טיפ:₪{tipAmount}
-                </p>
-
+                <p className="totalPrice"> טיפ:₪{tipAmount}</p>
 
                 <p className="totalPrice">
                   סך הכל :₪{orders.totalPrice.toFixed(2)}{" "}
@@ -168,7 +175,15 @@ useEffect(() => {
               >
                 חזרה להזמנה
               </button>
-              <button  onClick={handleSubmitOrder}  className="cart-btn submit">בצע הזמנה</button>
+              <button
+                onClick={() => {
+                  handleSubmitOrder(); // שולח לשרת ומעדכן status
+                  setIsOpen(false); // סוגר את העגלה
+                }}
+                className="cart-btn submit"
+              >
+                בצע הזמנה
+              </button>
             </div>
           </>
         )}
